@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Advertorial</title>
+<style>
+:root {
+  --bg:           #FFFFFF;
+  --bg-light:     #F8F9FA;
+  --bg-section:   #F4F7FA;
+  --accent:       #1A6BBF;
+  --accent-hover: #1558A0;
+  --accent-light: #E8F0FB;
+  --text:         #1A1A1A;
+  --text-muted:   #555555;
+  --text-light:   #888888;
+  --border:       #E0E6EF;
+  --cta:          #F5A623;
+  --cta-hover:    #E09510;
+  --cta-text:     #FFFFFF;
+  --star:         #F5A623;
+  --success:      #2E7D32;
+  --tag-bg:       #EAF3FB;
+  --tag-text:     #1A6BBF;
+  --compare-bad:  #FFF3F3;
+  --compare-ok:   #FFF8EC;
+  --compare-good: #F0FAF4;
+  --compare-bad-border:  #F5BCBC;
+  --compare-ok-border:   #F5DCA0;
+  --compare-good-border: #A8DDB8;
+  --font-headline: 'Playfair Display', Georgia, serif;
+  --font-body:     'Inter', system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text);background:var(--bg);font-size:17px;line-height:1.7}
+
+/* ── Top bar ── */
+.top-bar{background:var(--accent);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:8px 16px;letter-spacing:.3px}
+
+/* ── Header / Nav ── */
+.site-header{background:#fff;border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:center}
+.site-logo img{height:40px;width:auto}
+
+/* ── Breadcrumb ── */
+.breadcrumb{max-width:780px;margin:16px auto 0;padding:0 20px;font-size:13px;color:var(--text-muted)}
+.breadcrumb a{color:var(--accent);text-decoration:none}
+.breadcrumb span{margin:0 6px;color:var(--text-light)}
+
+/* ── Main content wrapper ── */
+.content{max-width:780px;margin:0 auto;padding:0 20px 60px}
+
+/* ── Hero ── */
+.hero{padding:32px 0 24px}
+.hero h1{font-family:var(--font-headline);font-size:clamp(26px,5vw,38px);line-height:1.25;font-weight:700;color:var(--text);margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}
+.hero-byline{font-size:14px;font-style:italic;color:var(--text-muted)}
+.hero-date{font-size:13px;color:var(--text-light)}
+.hero-rating{font-size:13px;color:var(--text-muted)}
+.hero-rating .stars{color:var(--star)}
+.img-slot{min-height:220px;background:linear-gradient(135deg,var(--bg-light),var(--accent-light));border-radius:10px;overflow:hidden;margin:20px 0}
+.img-slot.has-img{height:auto!important;min-height:0!important;background:transparent!important;padding:0!important;display:block!important}
+.img-slot.has-img img{width:100%;height:auto;object-fit:contain;display:block}
+.img-caption{font-size:13px;color:var(--text-light);text-align:center;margin-top:-12px;margin-bottom:20px;font-style:italic}
+
+/* ── Typography ── */
+h2{font-family:var(--font-headline);font-size:clamp(20px,4vw,26px);line-height:1.3;font-weight:700;color:var(--text);margin:40px 0 16px}
+h3{font-family:var(--font-headline);font-size:clamp(18px,3vw,22px);line-height:1.35;font-weight:600;color:var(--text);margin:30px 0 12px}
+p{margin-bottom:16px;color:var(--text-muted)}
+p strong,p b{color:var(--text);font-weight:700}
+blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(--accent-light);border-radius:0 8px 8px 0;margin:24px 0;font-style:italic;color:var(--text-muted);font-size:16px}
+.section-label{display:inline-block;background:var(--tag-bg);color:var(--tag-text);font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+
+/* ── Subsection treatment blocks ── */
+.treatment-block{border-left:3px solid var(--border);padding:4px 0 4px 20px;margin:24px 0}
+.treatment-block h3{margin-top:0;font-size:18px}
+
+/* ── Comparison table ── */
+.compare-intro-box{background:var(--bg-section);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:24px 0 28px}
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+@media(max-width:640px){.compare-grid{grid-template-columns:1fr}}
+.compare-col{border-radius:12px;padding:18px 16px}
+.compare-col.bad {background:var(--compare-bad); border:1.5px solid var(--compare-bad-border)}
+.compare-col.ok  {background:var(--compare-ok);  border:1.5px solid var(--compare-ok-border)}
+.compare-col.good{background:var(--compare-good);border:2px solid var(--compare-good-border)}
+.compare-col-title{font-family:var(--font-headline);font-size:15px;font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.3}
+.compare-col ul{list-style:none;padding:0}
+.compare-col ul li{font-size:14px;color:var(--text-muted);padding:5px 0;border-bottom:1px solid rgba(0,0,0,.05);line-height:1.4}
+.compare-col ul li:last-child{border-bottom:none}
+.compare-col ul li::before{content:'✗ ';color:#E53935;font-weight:700}
+.compare-col.good ul li::before{content:'✓ ';color:var(--success);font-weight:700}
+.compare-cta-wrap{text-align:center;margin-top:16px}
+
+/* ── CTA buttons ── */
+.btn-cta{display:inline-block;background:var(--cta);color:var(--cta-text);font-family:var(--font-body);font-size:16px;font-weight:700;padding:16px 28px;border-radius:8px;text-decoration:none;text-align:center;cursor:pointer;border:none;transition:background .2s,transform .1s;line-height:1.2}
+.btn-cta:hover{background:var(--cta-hover);transform:translateY(-1px)}
+.btn-cta-full{display:block;width:100%;max-width:500px;margin:0 auto;font-size:18px;padding:20px 32px;border-radius:10px}
+.cta-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:12px;font-size:13px;color:var(--text-muted)}
+.cta-badges span::before{content:'✓ ';color:var(--success);font-weight:700}
+
+/* ── Timeline ── */
+.timeline{margin:24px 0}
+.timeline-item{display:flex;gap:16px;margin-bottom:24px}
+.timeline-dot{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px}
+.timeline-body{}
+.timeline-label{font-weight:700;color:var(--text);margin-bottom:6px;font-size:16px}
+.timeline-text{font-size:15px;color:var(--text-muted)}
+
+/* ── Testimonials ── */
+.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:600px){.testimonials-grid{grid-template-columns:1fr}}
+.testimonial-card{background:var(--bg-light);border:1px solid var(--border);border-radius:12px;padding:18px}
+.t-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.t-avatar{width:36px;height:36px;border-radius:50%;background:var(--accent-light);color:var(--accent);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.t-name{font-weight:700;font-size:14px;color:var(--text)}
+.t-stars{color:var(--star);font-size:13px}
+.t-text{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:8px}
+.t-meta{font-size:12px;color:var(--text-light)}
+
+/* ── Bullet list ── */
+.check-list{list-style:none;padding:0;margin:16px 0 24px}
+.check-list li{padding:7px 0 7px 28px;position:relative;color:var(--text-muted);font-size:16px;border-bottom:1px solid var(--border)}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{content:'✓';position:absolute;left:0;top:7px;color:var(--success);font-weight:700;font-size:16px}
+
+/* ── Floating product card ── */
+.product-float{background:var(--bg-light);border:1.5px solid var(--border);border-radius:14px;padding:20px;margin:40px 0}
+.product-float-title{font-family:var(--font-headline);font-size:18px;font-weight:700;color:var(--text);margin-bottom:14px}
+.product-float-inner{display:flex;gap:16px;align-items:flex-start}
+.product-float-img{flex-shrink:0;width:100px}
+.rating-overview{}
+.rating-main{font-size:20px;color:var(--star);margin-bottom:8px}
+.rating-bars{}
+.rating-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:13px}
+.rating-row-label{width:60px;color:var(--text-muted)}
+.rating-bar-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.rating-bar-fill{height:100%;background:var(--star);border-radius:4px}
+.rating-row-pct{width:30px;color:var(--text-muted);text-align:right}
+.rating-metrics{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.rating-metric{font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px 8px;color:var(--text-muted)}
+
+/* ── PS / Disclaimer ── */
+.ps-box{background:var(--bg-section);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:32px 0}
+.disclaimer-text{font-size:12px;color:var(--text-light);line-height:1.6;margin-top:24px;padding-top:16px;border-top:1px solid var(--border)}
+
+/* ── Footer ── */
+.site-footer{background:var(--bg-section);border-top:1px solid var(--border);padding:40px 20px 30px;margin-top:60px}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr;gap:24px}}
+.footer-col h4{font-family:var(--font-headline);font-size:15px;font-weight:700;margin-bottom:12px;color:var(--text)}
+.footer-col ul{list-style:none;padding:0}
+.footer-col ul li{margin-bottom:8px}
+.footer-col ul li a{color:var(--text-muted);text-decoration:none;font-size:14px}
+.footer-col ul li a:hover{color:var(--accent)}
+.footer-col p{font-size:14px;color:var(--text-muted)}
+.footer-bottom{max-width:1100px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--border);text-align:center;font-size:13px;color:var(--text-light)}
+
+/* ── Utility ── */
+.section-divider{border:none;border-top:1px solid var(--border);margin:40px 0}
+.text-center{text-align:center}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="top-bar" id="top-bar-text">Free shipping on orders over $45 USD</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="site-logo">
+    <img src="https://asoleo.com/cdn/shop/files/Asoleo_Logo_e99e86c1-6069-4cb3-8b0c-60823ea74403.png?v=1752120098&width=300" alt="Asoleo" id="site-logo-img">
+  </div>
+</header>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+  <a href="#" id="breadcrumb-home">Home</a>
+  <span>›</span>
+  <a href="#" id="breadcrumb-cat">Health</a>
+  <span>›</span>
+  <span id="breadcrumb-page">Youth Sports Medicine</span>
+</nav>
+
+<!-- Main -->
+<main class="content">
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 id="hero-h1">
+      A Pediatric Sports Specialist Explains Why "Rest and Ice" Keeps Failing Your Child's
+      <em id="h1-highlight">Heel Pain</em>
+      — And the <em id="h1-highlight2">Simple Mechanical Fix</em>
+      <span id="h1-tail"> That's Changing How We Treat Young Athletes</span>
+    </h1>
+
+    <div class="hero-meta">
+      <div class="img-slot" id="img-doctorPortrait" style="min-height:80px;width:80px;border-radius:50%;flex-shrink:0"></div>
+      <div>
+        <div class="hero-byline" id="hero-byline">By Dr. Laura Bennett, Pediatric Sports Medicine Specialist</div>
+        <div class="hero-date" id="hero-date">Published: March 15, 2026</div>
+        <div class="hero-rating"><span class="stars" id="hero-rating">★★★★★ 4.8/5 Rating · 10,000+ Parent Reviews</span></div>
+      </div>
+    </div>
+
+    <div class="img-slot" id="img-heroScene"></div>
+  </section>
+
+  <!-- Intro narrative -->
+  <p id="intro-p1">I see this pattern at least three times a week in my clinic.</p>
+  <p id="intro-p2">A parent walks in with their 10, 11, or 12-year-old. The kid is limping. Sometimes trying to hide it. The parent looks exhausted — not physically, but the kind of exhaustion that comes from months of trying everything and watching nothing work.</p>
+  <p id="intro-p3">They tell me the story, and it's almost always the same story.</p>
+  <blockquote id="intro-quote">"His heels started hurting after soccer practice about six months ago. The pediatrician said it's Sever's disease — growing pains. Told us to rest and ice. So we did. For weeks. It got a little better. He went back to practice. Within a few days the pain was right back. We've done this cycle three or four times now."</blockquote>
+  <p id="intro-p4">Then they list what they've tried. And the list is always long.</p>
+  <p id="intro-p5">Ice after every practice. Ibuprofen before games. Gel heel cups from Amazon that slid around inside his cleats. Custom orthotics from the podiatrist — $300, $400, sometimes more — that the kid says feel bulky and weird. PT sessions twice a week that helped a little but never held once he went back to full training. Stretching routines from YouTube. Compression socks from Amazon that didn't seem to do anything.</p>
+  <p id="intro-p6">They've spent hundreds of dollars. Some families tell me they've spent over a thousand.</p>
+  <p><strong id="intro-p7-bold">And their child is still limping.</strong></p>
+  <p id="intro-p8">If you're reading this because you found a mom's story online about her son's heel pain and a sleeve that helped — and you want to know if any of this is actually real from a medical perspective — you're in the right place.</p>
+  <p id="intro-p9">I'm going to explain exactly what's happening inside your child's heel, why everything you've tried keeps failing, and what I now recommend to every family in my practice dealing with this problem.</p>
+
+  <hr class="section-divider">
+
+  <!-- Section 1 -->
+  <h2 id="section1-title">15 Years of Watching the Same Protocol Fail the Same Families</h2>
+  <div class="img-slot" id="img-heroScene2" style="display:none"></div><!-- secondary doctor image placeholder, hidden until URL provided -->
+  <p id="section1-p1">I'm Dr. Laura Bennett. I've been a pediatric sports medicine specialist for 15 years. I've treated over 2,000 young athletes with growth plate injuries — primarily Sever's disease (calcaneal apophysitis) and related conditions.</p>
+  <p id="section1-p2">For most of my career, I followed the standard protocol. Rest when it flares up. Ice after activity. Stretching. Maybe heel cups or orthotics if the family wanted something proactive. And the honest advice that I gave hundreds of times: "It's temporary. The growth plate closes around 14 or 15, and the pain goes away."</p>
+  <p id="section1-p3">That advice isn't wrong. The pain does eventually resolve.</p>
+  <p id="section1-p4">But about four years ago, I started paying closer attention to something I'd been overlooking: what was happening to these kids between diagnosis and resolution.</p>
+  <p id="section1-p5">I wasn't just seeing kids in pain. I was seeing kids who had <strong>stopped enjoying their sport</strong>. Kids who used to be the first one on the field, now making excuses to skip practice. Kids whose parents told me their son had started saying things like "maybe I'm just not meant to play anymore."</p>
+  <blockquote id="section1-quote">"I feel like a failure. I've spent $800 and six months and he's worse than when we started. What am I doing wrong?"</blockquote>
+  <p id="section1-p6">She wasn't doing anything wrong. The standard protocol was failing her. It was failing a lot of families. And I needed to understand why.</p>
+
+  <hr class="section-divider">
+
+  <!-- Section 2 -->
+  <h2 id="section2-title">What's Actually Happening Inside Your Child's Heel (And Why It's Not "Just Growing Pains")</h2>
+  <div class="img-slot" id="img-heelDiagram"></div>
+  <p id="section2-p1">Here's what's actually happening inside your child's heel during a growth spurt. I'm going to explain this the way I explain it to parents in my office, because once you understand the mechanism, everything else — including why rest and ice keep failing — becomes obvious.</p>
+  <p id="section2-p2">Your child's heel bone is called the calcaneus. At the back of the calcaneus, there's a growth plate — a soft area of developing cartilage where new bone is actively forming. This growth plate is called the <strong>calcaneal apophysis</strong>.</p>
+  <p id="section2-p3">The Achilles tendon — the strongest tendon in the body — attaches directly to this growth plate.</p>
+  <p id="section2-p4">During a growth spurt, the heel bone elongates. It grows. Sometimes rapidly — kids can grow an inch or more in just a few months.</p>
+  <p id="section2-p5">But here's the critical part: the Achilles tendon doesn't grow at the same rate. Bone grows from the growth plate. Tendons adapt by gradually stretching and remodeling. Those are two completely different biological processes operating on different timelines.</p>
+  <p id="section2-p6">So what happens is a <strong>mismatch</strong>. The bone gets longer. The tendon stays relatively the same length. And now you have a tight tendon attached to a growth plate that's actively developing.</p>
+  <p id="section2-p7">Every time your child runs, jumps, cuts, or pushes off — that tight Achilles tendon pulls on the soft, still-forming growth plate at the back of the heel.</p>
+  <p><strong id="section2-bold">That's Sever's disease.</strong> <span id="section2-p8">It's not a bruise. It's not a mysterious inflammation. It's a mechanical traction injury — a tight tendon pulling on a vulnerable growth plate, over and over, during every high-impact activity.</span></p>
+  <p id="section2-p9">This is fundamentally different from adult heel pain. Adults don't have open growth plates. When an adult's Achilles is tight, it pulls on solid, fused bone. That's why adult solutions — generic compression socks, standard heel cups, Achilles stretches — don't work the same way for growing kids. <strong id="section2-bold2">The anatomy is different. The problem is different. The solution needs to be different.</strong></p>
+  <p id="section2-p10">And this is why the standard protocol keeps failing.</p>
+
+  <hr class="section-divider">
+
+  <!-- Section 3 -->
+  <h2 id="section3-title">Why Everything You've Tried Hasn't Worked (And Why It's Not Your Fault)</h2>
+  <div class="img-slot" id="img-failedSolutions"></div>
+  <p id="section3-intro">I need to be clear about something: rest, ice, and the other standard recommendations aren't wrong. They're incomplete. They manage symptoms without addressing the mechanical cause. And that's why the pain keeps coming back.</p>
+  <p id="section3-lead">Let me walk through each one so you can see exactly why.</p>
+
+  <div class="treatment-block">
+    <h3 id="rest-title">Rest</h3>
+    <p id="rest-p1">Rest reduces the pain because your child isn't running. Less activity means fewer repetitions of the tight tendon pulling on the growth plate. The inflammation settles. The pain decreases. Everyone feels relieved.</p>
+    <p id="rest-p2">But the growth spurt doesn't pause while they rest. The bone continues to elongate. The tendon doesn't magically lengthen while they sit on the couch. So the mismatch — the fundamental cause of the problem — is still there when they return to training.</p>
+    <p id="rest-p3">This is why the pain returns within days of going back to practice. The rest addressed the accumulated irritation. It didn't change the structural tension that caused the irritation in the first place.</p>
+    <p id="rest-p4">I've watched families go through this cycle four, five, six times. Each time they rest, they lose weeks of training, fall behind their teammates, and lose confidence. And each time they return, the pain comes right back.</p>
+    <p><strong id="rest-bold">Rest is treating the effect while the cause continues underneath.</strong></p>
+  </div>
+
+  <div class="treatment-block">
+    <h3 id="ice-title">Ice and Anti-Inflammatories</h3>
+    <p id="ice-p1">Ice and ibuprofen reduce inflammation and pain signals. They make the heel feel better in the short term. But the inflammation in Sever's disease isn't random — it's caused by the repetitive traction on the growth plate. Reduce the inflammation today, and it returns tomorrow because the mechanical stress hasn't changed.</p>
+    <p id="ice-p2">I've had parents tell me they gave their child ibuprofen before every game for months. That concerns me — not just because of the medication exposure, but because they're effectively turning off the body's warning signal while the underlying stress continues.</p>
+  </div>
+
+  <div class="treatment-block">
+    <h3 id="heel-cups-title">Heel Cups and Gel Inserts</h3>
+    <p id="heel-cups-p1">Heel cups cushion the bottom of the heel. They reduce the impact of the foot striking the ground. For some types of heel pain — like bruised heels or plantar fasciitis — that's helpful.</p>
+    <p id="heel-cups-p2">But in Sever's disease, the primary pain driver isn't impact from below. <strong>It's traction from behind</strong> — the Achilles tendon pulling on the back of the growth plate. Cushioning the bottom of the heel doesn't reduce the pulling force at the back of the heel.</p>
+    <p id="heel-cups-p3">I've had many parents spend $15-$30 on heel cups and wonder why they didn't help. They weren't aimed at the right part of the problem.</p>
+  </div>
+
+  <div class="treatment-block">
+    <h3 id="orthotics-title">Custom Orthotics</h3>
+    <p id="orthotics-p1">Orthotics support the arch and correct foot alignment. They're excellent for conditions like flat feet, overpronation, and plantar fasciitis.</p>
+    <p id="orthotics-p2">But the primary problem in Sever's disease isn't arch collapse or alignment. It's a tight Achilles tendon pulling on a growth plate at the back of the heel. You can have perfect arches and still have severe Sever's disease if your heel bone is outgrowing your tendon.</p>
+    <p id="orthotics-p3">Custom orthotics typically cost $300-$600. I've seen families spend this money expecting it to solve the heel pain, only to find minimal improvement — because the orthotics were addressing biomechanics that weren't the core issue.</p>
+  </div>
+
+  <div class="treatment-block">
+    <h3 id="pt-title">Physical Therapy and Stretching</h3>
+    <p id="pt-p1">PT is valuable. Stretching the calf and Achilles can improve flexibility over time. Strengthening exercises build resilience.</p>
+    <p id="pt-p2">But during an active growth spurt, the bone is elongating faster than stretching can compensate. The therapist is trying to lengthen the tendon while biology is actively lengthening the bone. <strong id="pt-bold">The tendon gains a few millimeters of flexibility; the bone grows another centimeter. The math doesn't work.</strong></p>
+    <p id="pt-p3">This is why parents report that PT "helped a little but the pain came right back at full training." The therapy was doing real work — just not enough to overcome the rate of growth.</p>
+  </div>
+
+  <div class="treatment-block">
+    <h3 id="socks-title">Generic Compression Socks</h3>
+    <p id="socks-p1">Parents often try compression socks from Amazon. Some cost $10-$15. Most provide uniform compression across the entire foot and ankle.</p>
+    <p id="socks-p2">Here's the problem: uniform compression squeezes everything equally. It doesn't specifically stabilize the area where the Achilles attaches to the growth plate. In some cases, general compression can actually increase pronation — the foot rolling inward — which puts additional stress on the heel.</p>
+    <p id="socks-p3">A compression sock designed for adult calf recovery is a completely different product than one designed to stabilize a child's growth plate during high-impact sport. The compression zones are different. The pressure gradients are different. The anatomy being targeted is different.</p>
+    <p><strong id="socks-bold">This is why "we already tried compression socks and they didn't work" doesn't mean compression can't help. It means the wrong type of compression was applied to the wrong area.</strong></p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section 4 -->
+  <h2 id="section4-title">What Actually Needs to Happen</h2>
+  <p id="section4-p1">So if the problem is a tight Achilles tendon pulling on a developing growth plate during activity — and none of the standard treatments address that tension during activity — what does?</p>
+  <p id="section4-p2">The answer is straightforward: the growth plate needs mechanical support at the specific point of traction, delivered during the activity that aggravates it.</p>
+  <p id="section4-p3">Not cushioning from below. Not general compression across the whole foot. Not stretching before and icing after.</p>
+  <p><strong id="section4-bold">Targeted stabilization of the calcaneal apophysis — the exact spot where the Achilles tendon attaches to the growth plate — during running, jumping, and cutting.</strong></p>
+  <p id="section4-p4">This reduces the pulling force on the growth plate during each stride. It doesn't eliminate the growth mismatch. It doesn't stop the growth spurt. But it reduces the mechanical stress on the growth plate enough to allow the irritation to resolve while the child stays active.</p>
+  <p><strong id="section4-bold2">The growth plate can actually begin to heal instead of being re-aggravated every practice.</strong></p>
+  <p id="section4-p5">This isn't a new concept. In professional youth sports academies — MLS development programs, Olympic training centers — growth plate stabilization during activity has been standard practice for years. Athletic trainers in these programs wouldn't dream of letting a young athlete with calcaneal apophysitis train without mechanical support at the heel.</p>
+  <p id="section4-p6">The problem is that this approach never made it into mainstream pediatric medicine. Pediatricians and family doctors are trained to think about disease and medication — not biomechanics and mechanical support. So they prescribe rest and anti-inflammatories. They're treating Sever's like a medical condition when it's really a mechanical one.</p>
+
+  <hr class="section-divider">
+
+  <!-- Comparison table -->
+  <h2 id="compare-title">If Your Child Can't Afford to Wait 12-18 Months, <em>Here's What You Need to Know</em></h2>
+  <div class="compare-intro-box">
+    <p id="compare-intro" style="margin:0;color:var(--text)">The growth plate needs support during activity — not after. The standard protocol treats symptoms once the damage is done. The RecoverX Sleeve stabilizes the heel at the point of traction during running and jumping — so your child's growth plate can actually heal while they keep playing. Most parents see meaningful improvement within 2-3 weeks. 30-day money-back guarantee.</p>
+  </div>
+  <p id="compare-subtitle"><strong>Here's how the approaches compare:</strong></p>
+
+  <div class="compare-grid">
+    <div class="compare-col bad">
+      <div class="compare-col-title" id="col1-title">"Wait and See" — Rest, Ice, Ibuprofen</div>
+      <ul>
+        <li id="col1-p1">Requires stopping sports for weeks/months</li>
+        <li id="col1-p2">Pain typically returns within days</li>
+        <li id="col1-p3">Cycle repeats 4-6 times</li>
+        <li id="col1-p4">Child falls behind teammates</li>
+        <li id="col1-p5">Cost: $50-$150+ in meds &amp; visits</li>
+      </ul>
+    </div>
+    <div class="compare-col ok">
+      <div class="compare-col-title" id="col2-title">Passive Support — Heel Cups, Orthotics, Generic Compression</div>
+      <ul>
+        <li id="col2-p1">Doesn't target growth plate traction</li>
+        <li id="col2-p2">Orthotics: $300-$600+, too bulky for cleats</li>
+        <li id="col2-p3">Heel cups: $10-$30, slide around</li>
+        <li id="col2-p4">Generic socks miss the attachment point</li>
+        <li id="col2-p5">Kids resist bulky/uncomfortable devices</li>
+      </ul>
+    </div>
+    <div class="compare-col good">
+      <div class="compare-col-title" id="col3-title">Growth Plate Stabilization — RecoverX Sleeve</div>
+      <ul>
+        <li id="col3-p1">Supports the exact Achilles-to-growth-plate attachment</li>
+        <li id="col3-p2">Reduces traction stress during activity</li>
+        <li id="col3-p3">Low-profile — fits inside cleats</li>
+        <li id="col3-p4">Designed for growing feet</li>
+        <li id="col3-p5">$34.99 with 30-day guarantee</li>
+      </ul>
+      <div class="compare-cta-wrap">
+        <a href="#" class="btn-cta" data-cta="cta_1" id="cta1-btn" style="font-size:14px;padding:12px 20px">Check If RecoverX Is Available In Your Child's Size →</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section 5: Product -->
+  <h2 id="section5-title">The Professional Solution That's Finally Available to Regular Families</h2>
+  <div class="img-slot" id="img-productShot"></div>
+  <p id="section5-p1">About three years ago, a company called Asoleo released a product called the RecoverX Sleeve — a compression sleeve designed specifically for children with growth plate heel pain.</p>
+  <p id="section5-p2">I was skeptical at first. I'd seen plenty of "youth" products that were just adult products in smaller sizes. But when I looked at the design, something was different.</p>
+  <p id="section5-p3">The compression isn't uniform. It's graduated — specifically concentrated around the posterior calcaneus, where the Achilles tendon inserts into the growth plate. That's the exact point of traction stress in Sever's disease.</p>
+  <p id="section5-p4">The pressure profile is calibrated for developing tissue — firm enough to provide stabilization, gentle enough for the hormonal sensitivity of growing skin.</p>
+  <p id="section5-p5">The profile is low enough to fit inside soccer cleats, basketball shoes, and track spikes without adding bulk. This matters more than most product designers realize. I've recommended heel cups and orthotics that were clinically excellent but ended up in a closet because the child refused to wear them in their cleats.</p>
+  <p><strong id="section5-bold">If a kid won't wear it, it doesn't work.</strong> <span id="section5-p6">The RecoverX Sleeve is something kids actually keep on — and that alone makes it more effective than a superior product that sits in their gym bag.</span></p>
+  <p id="section5-p7">I started recommending it to families in my practice who were stuck in the rest-and-ice cycle. Not as a replacement for stretching and appropriate rest — but as the mechanical support piece that was missing from the standard protocol.</p>
+  <p id="section5-p8">What I've seen in my practice over the last two years has changed how I approach every case of Sever's disease.</p>
+
+  <hr class="section-divider">
+
+  <!-- Section 6: Results -->
+  <h2 id="section6-title">The Results I've Seen Changed How I Practice</h2>
+  <p id="jake-intro">The first patient I recommended it to was a 10-year-old soccer player named Jake. He'd been dealing with bilateral heel pain for five months. His parents had spent over $700 on orthotics, heel cups, and PT. He was on modified activity — limited to light jogging, no sprinting, no games. His mother told me he'd started saying he didn't want to go to practice anymore.</p>
+  <p id="jake-p1">I had Jake wear the RecoverX Sleeve during all activity — practice, games, even PE at school.</p>
+  <p id="jake-week1">Within the first week, his mother reported that the post-practice limping had decreased noticeably. He was still sore, but it was <em>"a different kind of sore — not that sharp, deep feeling."</em></p>
+  <p id="jake-week2">By week two, he completed a full practice for the first time in months. No ice afterward. His mother texted me: <em>"He didn't ask for the ice pack. I almost didn't know what to do with myself."</em></p>
+  <p id="jake-week4">By week four, he played his first tournament. Three games in one day. His coach told his parents he looked like <em>"a different player."</em> Not because his skills had changed — because he wasn't flinching every time he planted his foot.</p>
+  <p id="jake-outcome">He's now six months out. Full activity. No pain. He wears the sleeve to every practice and game as a precaution, and his mother says he puts it on without being reminded.</p>
+  <p><strong id="jake-not-unusual">Jake's case isn't unusual.</strong></p>
+  <p id="patient2">I had a 12-year-old basketball player whose parents were considering pulling her from her travel team because the heel pain was affecting her grades — she was so tired from not sleeping well that her schoolwork was suffering. Three weeks with the sleeve, and the nighttime pain that had been waking her up stopped. She finished the season.</p>
+  <p id="patient3">A 9-year-old gymnast whose coach had put her on a "watch list" for reduced participation. Within two weeks of wearing the sleeve during practice, her coach asked the parents what had changed because her landings were more confident.</p>
+  <p id="patient4">An 11-year-old football player whose father had spent over $1,000 on MRIs, specialist visits, and PT — and had been told "there's nothing to do but wait." Three weeks with the sleeve, and the morning limp that had been a daily fixture for eight months was gone.</p>
+  <p id="section6-conclusion">I'm not presenting these as clinical trial data. I'm presenting them as what I've observed in my own practice, repeatedly, across dozens of families. The pattern is consistent: <strong>targeted compression at the growth plate during activity allows the irritation to resolve in a way that the standard protocol — treating symptoms after activity — simply doesn't.</strong></p>
+
+  <hr class="section-divider">
+
+  <!-- Section 7: Timeline -->
+  <h2 id="section7-title">What "Normal" Should Actually Look Like</h2>
+  <p id="timeline-intro">Based on what I've seen across my practice, here's what most families can expect. I want to be honest about this because I know you've been disappointed before, and I'd rather set realistic expectations than overpromise.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot">1</div>
+      <div class="timeline-body">
+        <div class="timeline-label" id="week1-label">Week 1:</div>
+        <div class="timeline-text" id="week1-text">The sharpness of the pain typically decreases. Parents often describe this as <em>"he still says it hurts, but it's different — more like tightness than that stabbing feeling."</em> The post-practice limp may be less pronounced. This is a good sign — it means the traction stress is being reduced.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">2</div>
+      <div class="timeline-body">
+        <div class="timeline-label" id="week2-label">Week 2:</div>
+        <div class="timeline-text" id="week2-text">Most children can complete full practices without needing ice afterward. Some parents tell me this is the first real sign — their kid gets in the car and doesn't immediately ask for the ice pack. Nighttime pain (the groaning, shifting, and occasional waking) often improves significantly by this point.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">3+</div>
+      <div class="timeline-body">
+        <div class="timeline-label" id="week3-label">Week 3 and beyond:</div>
+        <div class="timeline-text" id="week3-text">Full activity — games, tournaments, back-to-back practice days — becomes possible without the pain cycling back. This is usually when parents tell me <em>"it's like having our kid back."</em> Not because the pain magically disappeared overnight, but because for the first time in months, their child can do what they love without paying for it afterward.</div>
+      </div>
+    </div>
+  </div>
+
+  <p id="timeline-conclusion">I want to be clear: the sleeve doesn't cure Sever's disease. The growth plate will close on its own timeline regardless. What the sleeve does is protect the growth plate from excessive traction stress during the years when the bone-tendon mismatch is at its worst — so your child can keep playing and developing instead of sitting out and falling behind.</p>
+  <p id="timeline-guarantee">Not every child responds in exactly this timeline. Some see improvement faster. Some take a full month. But in my experience, if there's no noticeable improvement within 30 days, it's time to look at other factors.</p>
+  <p id="timeline-guarantee-note">Which is why the company offers a <strong>30-day money-back guarantee</strong>. If your child doesn't improve, you get a full refund. After everything most families have already spent, a $35 product with a real guarantee is the lowest-risk thing they'll try.</p>
+
+  <div class="text-center" style="margin:28px 0">
+    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_2" id="cta2-btn">Try RecoverX Risk-Free — 30-Day Guarantee →</a>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Testimonials -->
+  <h2 id="testimonials-title">What Other Parents Are Saying</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="t-header">
+        <div class="t-avatar">J</div>
+        <div>
+          <div class="t-name" id="t1-name">Jessica M.</div>
+          <div class="t-stars" id="t1-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="t-text" id="t1-text">My daughter says they're comfortable which is HUGE because she hated the heel cups we tried before. Actually keeps them on without me nagging. We're on week 3 and she hasn't complained about heel pain once since we started using these.</div>
+      <div class="t-meta" id="t1-meta">3 weeks ago · 👍 270</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-header">
+        <div class="t-avatar">C</div>
+        <div>
+          <div class="t-name" id="t2-name">Chris D.</div>
+          <div class="t-stars" id="t2-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="t-text" id="t2-text">The difference is night and day. He used to wake up crying at 2am and now sleeps through no problem. Wish we'd found these 6 months ago instead of spending hundreds on stuff that didn't work.</div>
+      <div class="t-meta" id="t2-meta">1 week ago · 👍 185</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-header">
+        <div class="t-avatar">S</div>
+        <div>
+          <div class="t-name" id="t3-name">Sarah W.</div>
+          <div class="t-stars" id="t3-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="t-text" id="t3-text">UPDATE: We got these 3 weeks ago and my son actually played a full tournament this weekend without limping. I sat in my car after and cried. If you're on the fence just try it. The guarantee is real.</div>
+      <div class="t-meta" id="t3-meta">6 hours ago · 👍 94</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-header">
+        <div class="t-avatar">M</div>
+        <div>
+          <div class="t-name" id="t4-name">Michelle T.</div>
+          <div class="t-stars" id="t4-stars">★★★★☆</div>
+        </div>
+      </div>
+      <div class="t-text" id="t4-text">Took about a week to see real improvement but now he's back to normal. Still wearing them just in case. Only reason for 4 stars instead of 5 is I wish I'd known about these sooner so we could've skipped the $400 orthotics collecting dust in his closet.</div>
+      <div class="t-meta" id="t4-meta">2 weeks ago · 👍 112</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-header">
+        <div class="t-avatar">E</div>
+        <div>
+          <div class="t-name" id="t5-name">Emily R.</div>
+          <div class="t-stars" id="t5-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="t-text" id="t5-text">Not gonna lie I thought this was a gimmick at first. My husband wanted to return it before our son even tried it. But after 2 weeks the pain is like 90% gone. He's back to being the kid we remember.</div>
+      <div class="t-meta" id="t5-meta">1 week ago · 👍 67</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-header">
+        <div class="t-avatar">A</div>
+        <div>
+          <div class="t-name" id="t6-name">Andrea K.</div>
+          <div class="t-stars" id="t6-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="t-text" id="t6-text">My 9-year-old gymnast has been dealing with heel pain for 8 months. We tried EVERYTHING. Ice, rest, heel cups, PT twice a week, custom orthotics. Spent well over $1,000. Three weeks with this sleeve and she just did her first full practice without crying. I'm angry nobody told us about this sooner.</div>
+      <div class="t-meta" id="t6-meta">4 days ago · 👍 203</div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section 8: Final CTA -->
+  <h2 id="section8-title">Don't Let Another Season Go By</h2>
+  <p id="section8-p1">Here's what I tell every parent who sits in my office with a limping child and a list of things that haven't worked:</p>
+  <p><strong id="section8-bold">You're not doing anything wrong.</strong> <span id="section8-p2">The standard protocol is incomplete. Rest manages symptoms. Ice reduces inflammation. Heel cups cushion impact. PT builds strength. But none of it addresses the mechanical tension at the growth plate during the activity that's causing the injury.</span></p>
+  <p><strong id="section8-bold2">That tension — the tight Achilles tendon pulling on the developing growth plate during every run, jump, and push-off — is what needs to be supported. During activity. Not before. Not after. During.</strong></p>
+  <p id="section8-p3">The RecoverX Sleeve was designed for exactly this. Targeted compression at the calcaneal apophysis. Graduated pressure calibrated for growing feet. Low-profile enough to fit inside cleats. Comfortable enough that kids actually wear it.</p>
+  <p><strong id="section8-price">It costs $34.99.</strong> <span id="section8-p4">That's less than one PT copay. Less than one pair of heel cups and insoles combined. Significantly less than the custom orthotics sitting in your child's closet.</span></p>
+  <p id="section8-guarantee">It comes with a <strong>30-day money-back guarantee</strong>. If your child doesn't show improvement, you get every penny back. No questions, no hassle.</p>
+  <p id="section8-p5">Most families in my practice see meaningful change within two to three weeks:</p>
+  <ul class="check-list">
+    <li id="bullet1">Their child completes practice without limping after</li>
+    <li id="bullet2">The morning hobble to the bathroom stops</li>
+    <li id="bullet3">Nighttime groaning and shifting fades</li>
+    <li id="bullet4">They stop asking for ice</li>
+    <li id="bullet5">They start talking about their sport again — not the pain</li>
+  </ul>
+  <p id="section8-closing">Your child's growth plate will close whether you act or not. The question is what happens between now and then. Months or years of the rest-and-ice cycle — falling behind teammates, losing confidence, drifting away from the sport they love. Or mechanical support during the critical window, so their body can handle both growing and competing at the same time.</p>
+  <p><strong id="section8-urgency">Every week in the cycle is a week they don't get back.</strong></p>
+
+  <div class="text-center" style="margin:32px 0">
+    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_3" id="cta3-btn" style="font-size:19px;letter-spacing:.3px">GET THE RECOVERX SLEEVE — 30-DAY GUARANTEE</a>
+    <div class="cta-badges">
+      <span id="cta3-sub1">Ships within 24 hours</span>
+      <span id="cta3-sub2">30-Day Money-Back Guarantee</span>
+      <span id="cta3-sub3">Designed for youth growth plate heel pain</span>
+    </div>
+  </div>
+
+  <!-- PS -->
+  <div class="ps-box">
+    <p id="ps-text"><strong>P.S.</strong> — If you're still wondering whether a compression sleeve can really make a difference for a problem that's "in the bone" — I understand the skepticism. I had it too. But Sever's disease isn't a bone disease. It's a traction injury at the growth plate caused by a tight tendon. Compression at the point of traction reduces the pulling force. It's the same principle used in professional youth sports medicine programs worldwide. The only difference is that until recently, there wasn't a product designed to deliver it in a form that regular families could access and kids would actually wear. RecoverX changed that.</p>
+    <p id="ps-p2" style="margin-top:14px">If your child is dealing with heel pain that won't go away — especially if they're between 8 and 14, active in sports, and going through a growth spurt — this is worth trying. The guarantee means there's no financial risk. And the alternative is more months of the same cycle that brought you here.</p>
+  </div>
+
+  <!-- Disclaimer -->
+  <p class="disclaimer-text" id="disclaimer">This is an advertisement and not an actual news article, blog, or consumer protection update. Individual results may vary. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. The RecoverX Sleeve is designed to provide compression support for the heel and ankle area. Consult your child's physician before starting any new treatment protocol.</p>
+  <p class="disclaimer-text" id="disclosure-text" style="margin-top:8px">Marketing Disclosure: This website serves as a marketplace. The owner has a financial connection to the advertised products and services.</p>
+
+  <!-- Floating product card -->
+  <div class="product-float" style="margin-top:48px">
+    <div class="product-float-title" id="float-product-name">RecoverX™ Youth Heel Compression Sleeve</div>
+    <div class="product-float-inner">
+      <div class="product-float-img">
+        <div class="img-slot" id="img-footerProduct" style="min-height:100px;border-radius:8px"></div>
+        <div style="margin-top:12px;text-align:center">
+          <a href="#" class="btn-cta" data-cta="cta_float" id="float-cta-btn" style="font-size:14px;padding:10px 16px;display:inline-block">Check Availability →</a>
+        </div>
+      </div>
+      <div class="rating-overview" style="flex:1">
+        <div class="rating-main" id="float-rating-label">★★★★★ 4.8 out of 5</div>
+        <div class="rating-bars">
+          <div class="rating-row"><span class="rating-row-label">5 Star</span><div class="rating-bar-track"><div class="rating-bar-fill" id="bar5" style="width:87%"></div></div><span class="rating-row-pct" id="float-star5">87%</span></div>
+          <div class="rating-row"><span class="rating-row-label">4 Star</span><div class="rating-bar-track"><div class="rating-bar-fill" id="bar4" style="width:10%;opacity:.7"></div></div><span class="rating-row-pct" id="float-star4">10%</span></div>
+          <div class="rating-row"><span class="rating-row-label">3 Star</span><div class="rating-bar-track"><div class="rating-bar-fill" id="bar3" style="width:2%;opacity:.5"></div></div><span class="rating-row-pct" id="float-star3">2%</span></div>
+          <div class="rating-row"><span class="rating-row-label">2 Star</span><div class="rating-bar-track"><div class="rating-bar-fill" id="bar2" style="width:0%;opacity:.3"></div></div><span class="rating-row-pct" id="float-star2">0%</span></div>
+          <div class="rating-row"><span class="rating-row-label">1 Star</span><div class="rating-bar-track"><div class="rating-bar-fill" id="bar1" style="width:1%;opacity:.2"></div></div><span class="rating-row-pct" id="float-star1">1%</span></div>
+        </div>
+        <div class="rating-metrics">
+          <span class="rating-metric" id="float-pain-label">Pain Relief</span>
+          <span class="rating-metric" id="float-pain-score">★★★★★ 4.9</span>
+          <span class="rating-metric" id="float-comfort-label">Comfort</span>
+          <span class="rating-metric" id="float-comfort-score">★★★★★ 5.0</span>
+          <span class="rating-metric" id="float-value-label">Value</span>
+          <span class="rating-metric" id="float-value-score">★★★★★ 4.8</span>
+          <span class="rating-metric" id="float-results-label">Results</span>
+          <span class="rating-metric" id="float-results-score">★★★★★ 4.9</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Our Policies</h4>
+      <ul>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Refund &amp; Warranty Policy</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Cancellation Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Customer Care</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Track Your Order</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>Email: <strong id="footer-email">support@asoleo.com</strong></p>
+      <p style="margin-top:6px">Phone: <strong id="footer-phone">+1 (213) 754-3471</strong></p>
+      <p style="margin-top:10px;font-size:13px" id="footer-contact">We aim to respond to all inquiries as quickly as possible during normal business hours.</p>
+    </div>
+  </div>
+  <div class="footer-bottom" id="footer-copyright">© 2026 Asoleo. All Rights Reserved.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="tracker.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  var CFG = window.FUNNEL_CONFIG || {};
+
+  /* ── Deep merge helper ── */
+  function deepMerge(base, override) {
+    var result = Object.assign({}, base);
+    for (var key in override) {
+      if (override.hasOwnProperty(key)) {
+        if (override[key] && typeof override[key] === 'object' && !Array.isArray(override[key])
+            && base[key] && typeof base[key] === 'object') {
+          result[key] = deepMerge(base[key], override[key]);
+        } else {
+          result[key] = override[key];
+        }
+      }
+    }
+    return result;
+  }
+
+  /* ── Apply config to page ── */
+  function applyConfig(cfg) {
+    // 1. Colors
+    var colors = cfg.colors || {};
+    for (var colorKey in colors) {
+      if (colors.hasOwnProperty(colorKey)) {
+        document.documentElement.style.setProperty(colorKey, colors[colorKey]);
+      }
+    }
+
+    // 2. Fonts
+    if (cfg.fonts) {
+      var fonts = cfg.fonts;
+      var link = document.createElement('link');
+      var hEnc = (fonts.headline || 'Playfair Display').replace(/ /g, '+');
+      var bEnc = (fonts.body || 'Inter').replace(/ /g, '+');
+      link.href = 'https://fonts.googleapis.com/css2?family=' + hEnc + ':wght@400;700&family=' + bEnc + ':wght@400;600;700&display=swap';
+      link.rel = 'stylesheet';
+      document.head.appendChild(link);
+      document.documentElement.style.setProperty('--font-headline', "'" + (fonts.headline || 'Playfair Display') + "', Georgia, serif");
+      document.documentElement.style.setProperty('--font-body', "'" + (fonts.body || 'Inter') + "', system-ui, sans-serif");
+    }
+
+    // 3. Images
+    var images = cfg.images || {};
+    for (var imgKey in images) {
+      if (images.hasOwnProperty(imgKey)) {
+        var url = images[imgKey];
+        var slot = document.getElementById('img-' + imgKey);
+        if (!slot) continue;
+        if (url) {
+          slot.classList.add('has-img');
+          slot.innerHTML = '<img src="' + url + '" alt="" loading="lazy">';
+          // Show secondary doctor slot if URL is provided
+          if (imgKey === 'heroScene2') slot.style.display = '';
+        } else {
+          slot.classList.remove('has-img');
+          slot.innerHTML = '';
+        }
+      }
+    }
+
+    // 4. Texts — map config keys to element IDs
+    var textMap = {
+      topBarText:        'top-bar-text',
+      breadcrumbHome:    'breadcrumb-home',
+      breadcrumbCat:     'breadcrumb-cat',
+      breadcrumbPage:    'breadcrumb-page',
+      heroByline:        'hero-byline',
+      heroDate:          'hero-date',
+      heroRating:        'hero-rating',
+      h1Part1:           null, // composed in h1
+      h1Highlight:       'h1-highlight',
+      h1Highlight2:      'h1-highlight2',
+      h1Tail:            'h1-tail',
+      introP1:           'intro-p1',
+      introP2:           'intro-p2',
+      introP3:           'intro-p3',
+      introQuote:        'intro-quote',
+      introP4:           'intro-p4',
+      introP5:           'intro-p5',
+      introP6:           'intro-p6',
+      introP7Bold:       'intro-p7-bold',
+      introP8:           'intro-p8',
+      introP9:           'intro-p9',
+      section1Title:     'section1-title',
+      section1P1:        'section1-p1',
+      section1P2:        'section1-p2',
+      section1P3:        'section1-p3',
+      section1P4:        'section1-p4',
+      section1P5:        'section1-p5',
+      section1Quote:     'section1-quote',
+      section1P6:        'section1-p6',
+      section2Title:     'section2-title',
+      section2P1:        'section2-p1',
+      section2P2:        'section2-p2',
+      section2P3:        'section2-p3',
+      section2P4:        'section2-p4',
+      section2P5:        'section2-p5',
+      section2P6:        'section2-p6',
+      section2P7:        'section2-p7',
+      section2Bold:      'section2-bold',
+      section2P8:        'section2-p8',
+      section2P9:        'section2-p9',
+      section2Bold2:     'section2-bold2',
+      section2P10:       'section2-p10',
+      section3Title:     'section3-title',
+      section3Intro:     'section3-intro',
+      section3Lead:      'section3-lead',
+      restTitle:         'rest-title',
+      restP1:            'rest-p1',
+      restP2:            'rest-p2',
+      restP3:            'rest-p3',
+      restP4:            'rest-p4',
+      restBold:          'rest-bold',
+      iceTitle:          'ice-title',
+      iceP1:             'ice-p1',
+      iceP2:             'ice-p2',
+      heelCupsTitle:     'heel-cups-title',
+      heelCupsP1:        'heel-cups-p1',
+      heelCupsP2:        'heel-cups-p2',
+      heelCupsP3:        'heel-cups-p3',
+      orthoticsTitle:    'orthotics-title',
+      orthoticsP1:       'orthotics-p1',
+      orthoticsP2:       'orthotics-p2',
+      orthoticsP3:       'orthotics-p3',
+      ptTitle:           'pt-title',
+      ptP1:              'pt-p1',
+      ptP2:              'pt-p2',
+      ptBold:            'pt-bold',
+      ptP3:              'pt-p3',
+      socksTitle:        'socks-title',
+      socksP1:           'socks-p1',
+      socksP2:           'socks-p2',
+      socksP3:           'socks-p3',
+      socksBold:         'socks-bold',
+      section4Title:     'section4-title',
+      section4P1:        'section4-p1',
+      section4P2:        'section4-p2',
+      section4P3:        'section4-p3',
+      section4Bold:      'section4-bold',
+      section4P4:        'section4-p4',
+      section4Bold2:     'section4-bold2',
+      section4P5:        'section4-p5',
+      section4P6:        'section4-p6',
+      compareTitle:      'compare-title',
+      compareIntro:      'compare-intro',
+      compareSubtitle:   'compare-subtitle',
+      col1Title:         'col1-title',
+      col1Point1:        'col1-p1',
+      col1Point2:        'col1-p2',
+      col1Point3:        'col1-p3',
+      col1Point4:        'col1-p4',
+      col1Point5:        'col1-p5',
+      col2Title:         'col2-title',
+      col2Point1:        'col2-p1',
+      col2Point2:        'col2-p2',
+      col2Point3:        'col2-p3',
+      col2Point4:        'col2-p4',
+      col2Point5:        'col2-p5',
+      col3Title:         'col3-title',
+      col3Point1:        'col3-p1',
+      col3Point2:        'col3-p2',
+      col3Point3:        'col3-p3',
+      col3Point4:        'col3-p4',
+      col3Point5:        'col3-p5',
+      col3Cta:           'cta1-btn',
+      section5Title:     'section5-title',
+      section5P1:        'section5-p1',
+      section5P2:        'section5-p2',
+      section5P3:        'section5-p3',
+      section5P4:        'section5-p4',
+      section5P5:        'section5-p5',
+      section5Bold:      'section5-bold',
+      section5P6:        'section5-p6',
+      section5P7:        'section5-p7',
+      section5P8:        'section5-p8',
+      section6Title:     'section6-title',
+      jakeIntro:         'jake-intro',
+      jakeP1:            'jake-p1',
+      jakeWeek1:         'jake-week1',
+      jakeWeek2:         'jake-week2',
+      jakeWeek4:         'jake-week4',
+      jakeOutcome:       'jake-outcome',
+      jakeNotUnusual:    'jake-not-unusual',
+      patient2:          'patient2',
+      patient3:          'patient3',
+      patient4:          'patient4',
+      section6Conclusion:'section6-conclusion',
+      section7Title:     'section7-title',
+      timelineIntro:     'timeline-intro',
+      week1Label:        'week1-label',
+      week1Text:         'week1-text',
+      week2Label:        'week2-label',
+      week2Text:         'week2-text',
+      week3Label:        'week3-label',
+      week3Text:         'week3-text',
+      timelineConclusion:'timeline-conclusion',
+      timelineGuarantee: 'timeline-guarantee',
+      timelineGuaranteeNote:'timeline-guarantee-note',
+      cta2Text:          'cta2-btn',
+      testimonialsTitle: 'testimonials-title',
+      t1Name:            't1-name', t1Stars:'t1-stars', t1Text:'t1-text', t1Meta:'t1-meta',
+      t2Name:            't2-name', t2Stars:'t2-stars', t2Text:'t2-text', t2Meta:'t2-meta',
+      t3Name:            't3-name', t3Stars:'t3-stars', t3Text:'t3-text', t3Meta:'t3-meta',
+      t4Name:            't4-name', t4Stars:'t4-stars', t4Text:'t4-text', t4Meta:'t4-meta',
+      t5Name:            't5-name', t5Stars:'t5-stars', t5Text:'t5-text', t5Meta:'t5-meta',
+      t6Name:            't6-name', t6Stars:'t6-stars', t6Text:'t6-text', t6Meta:'t6-meta',
+      section8Title:     'section8-title',
+      section8P1:        'section8-p1',
+      section8Bold:      'section8-bold',
+      section8P2:        'section8-p2',
+      section8Bold2:     'section8-bold2',
+      section8P3:        'section8-p3',
+      section8Price:     'section8-price',
+      section8P4:        'section8-p4',
+      section8Guarantee: 'section8-guarantee',
+      section8P5:        'section8-p5',
+      bullet1:           'bullet1', bullet2:'bullet2', bullet3:'bullet3', bullet4:'bullet4', bullet5:'bullet5',
+      section8Closing:   'section8-closing',
+      section8Urgency:   'section8-urgency',
+      cta3Text:          'cta3-btn',
+      cta3Sub1:          'cta3-sub1', cta3Sub2:'cta3-sub2', cta3Sub3:'cta3-sub3',
+      psText:            'ps-text',
+      psP2:              'ps-p2',
+      disclaimer:        'disclaimer',
+      disclosureText:    'disclosure-text',
+      floatProductName:  'float-product-name',
+      floatProductCta:   'float-cta-btn',
+      floatRatingLabel:  'float-rating-label',
+      floatStar5:        'float-star5', floatStar4:'float-star4', floatStar3:'float-star3',
+      floatStar2:        'float-star2', floatStar1:'float-star1',
+      floatPainLabel:    'float-pain-label', floatPainScore:'float-pain-score',
+      floatComfortLabel: 'float-comfort-label', floatComfortScore:'float-comfort-score',
+      floatValueLabel:   'float-value-label', floatValueScore:'float-value-score',
+      floatResultsLabel: 'float-results-label', floatResultsScore:'float-results-score',
+      footerCopyright:   'footer-copyright',
+      footerEmail:       'footer-email',
+      footerPhone:       'footer-phone',
+      footerContact:     'footer-contact'
+    };
+
+    var texts = cfg.texts || {};
+    for (var tKey in textMap) {
+      if (!textMap.hasOwnProperty(tKey) || !textMap[tKey]) continue;
+      var el = document.getElementById(textMap[tKey]);
+      if (el && texts[tKey] !== undefined) {
+        el.textContent = texts[tKey];
+      }
+    }
+
+    // 5. CTA URLs
+    var ctaUrl = cfg.ctaUrl || '#';
+    document.querySelectorAll('[data-cta]').forEach(function(el) {
+      el.href = ctaUrl;
+    });
+
+    // 6. Rating bars
+    var s5 = parseInt((texts.floatStar5 || '87'), 10);
+    var s4 = parseInt((texts.floatStar4 || '10'), 10);
+    var s3 = parseInt((texts.floatStar3 || '2'), 10);
+    var s2 = parseInt((texts.floatStar2 || '0'), 10);
+    var s1 = parseInt((texts.floatStar1 || '1'), 10);
+    var bars = {bar5:s5, bar4:s4, bar3:s3, bar2:s2, bar1:s1};
+    for (var b in bars) {
+      var barEl = document.getElementById(b);
+      if (barEl) barEl.style.width = bars[b] + '%';
+    }
+  }
+
+  /* ── Load flow ── */
+  function init() {
+    if (CFG.supabaseUrl && CFG.supabaseAnonKey) {
+      try {
+        var sb = window.supabase.createClient(CFG.supabaseUrl, CFG.supabaseAnonKey);
+        sb.from('funnel_config')
+          .select('config')
+          .eq('funnel_id', CFG.funnelId)
+          .single()
+          .then(function(res) {
+            if (res.data && res.data.config) {
+              applyConfig(deepMerge(CFG, res.data.config));
+            } else {
+              applyConfig(CFG);
+            }
+          })
+          .catch(function() { applyConfig(CFG); });
+      } catch(e) {
+        applyConfig(CFG);
+      }
+    } else {
+      applyConfig(CFG);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
