@@ -2,7 +2,7 @@ window.FUNNEL_CONFIG = {
   supabaseUrl: 'https://hikuempzuthiguramoai.supabase.co',
   supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhpa3VlbXB6dXRoaWd1cmFtb2FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNzU2ODEsImV4cCI6MjA5NTY1MTY4MX0.MF0UfmJQXAfNCNOXbTQuFSKbgp2mWeEqxUMCUhi07Xg',
   funnelId: 'advertorial',
-  adminPassword: 'admin2026',
+  adminPassword: 'HajjSamy2026',
 
   metaPixelId: '',
   gaId: '',
