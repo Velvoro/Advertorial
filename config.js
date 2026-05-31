@@ -2,7 +2,7 @@ window.FUNNEL_CONFIG = {
   supabaseUrl: 'https://hikuempzuthiguramoai.supabase.co',
   supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhpa3VlbXB6dXRoaWd1cmFtb2FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNzU2ODEsImV4cCI6MjA5NTY1MTY4MX0.MF0UfmJQXAfNCNOXbTQuFSKbgp2mWeEqxUMCUhi07Xg',
   funnelId: 'advertorial',
-  adminPassword: 'admin2026',
+  adminPassword: 'HajjSamy2026',
 
   metaPixelId: '',
   gaId: '',
@@ -182,7 +182,7 @@ window.FUNNEL_CONFIG = {
     col3Point3:   'Profil bas — s\'adapte à l\'intérieur des crampons',
     col3Point4:   'Conçue pour les pieds en croissance',
     col3Point5:   '29,99 € avec garantie 30 jours',
-    col3Cta:      'Vérifier la disponibilité dans la pointure de votre enfant →',
+    col3Cta:      'VOIR LES TAILLES DISPONIBLES →',
 
     /* ── Section 5 ── */
     section5Title:  'La solution professionnelle enfin accessible aux familles ordinaires',
