@@ -37,11 +37,18 @@ html{scroll-behavior:smooth}
 body{font-family:var(--font-body);color:var(--text);background:var(--bg);font-size:17px;line-height:1.7}
 
 /* ── Top bar ── */
-.top-bar{background:var(--accent);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:8px 16px;letter-spacing:.3px}
+.top-bar{display:none}
 
 /* ── Header / Nav ── */
-.site-header{background:#fff;border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:center}
-.site-logo img{height:40px;width:auto}
+.site-header{background:#FFFFFF;border-bottom:2px solid #00C9A7;padding:12px 24px;display:flex;align-items:center;justify-content:center}
+.site-logo{display:flex;align-items:center;justify-content:center}
+.site-logo img{height:52px;width:auto;display:block}
+.logo-svg-wrap{display:flex;align-items:center;gap:14px}
+.logo-text-block{display:flex;flex-direction:column}
+.logo-title{font-size:26px;font-weight:800;color:#1A2A4A;letter-spacing:.5px;line-height:1;font-family:'Segoe UI',sans-serif}
+.logo-title span{color:#00C9A7}
+.logo-subtitle{font-size:10px;font-weight:600;color:#2EAA84;letter-spacing:2px;text-transform:uppercase;margin-top:3px;display:flex;align-items:center;gap:6px}
+.logo-subtitle::before,.logo-subtitle::after{content:'';display:inline-block;width:20px;height:1px;background:#2EAA84}
 
 /* ── Breadcrumb ── */
 .breadcrumb{max-width:780px;margin:16px auto 0;padding:0 20px;font-size:13px;color:var(--text-muted)}
@@ -169,8 +176,32 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
 
 <!-- Header -->
 <header class="site-header">
-  <div class="site-logo">
-    <img src="https://asoleo.com/cdn/shop/files/Asoleo_Logo_e99e86c1-6069-4cb3-8b0c-60823ea74403.png?v=1752120098&width=300" alt="Asoleo" id="site-logo-img">
+  <div class="site-logo" id="logo-container">
+    <!-- Logo image dynamique (rempli via admin si URL fournie) -->
+    <div id="img-logo" class="img-slot" style="min-height:0;background:none;margin:0;display:none"></div>
+    <!-- Logo SVG par défaut Sport & Santé -->
+    <div class="logo-svg-wrap" id="logo-svg-default">
+      <svg width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+        <!-- ECG line + runner icon -->
+        <circle cx="26" cy="26" r="26" fill="none"/>
+        <!-- ECG line -->
+        <polyline points="2,28 10,28 13,20 16,34 19,22 22,28 28,28 31,18 34,32 37,24 40,28 50,28"
+          fill="none" stroke="#00C9A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Runner silhouette simplified -->
+        <circle cx="33" cy="13" r="3.5" fill="#00C9A7"/>
+        <line x1="33" y1="16.5" x2="30" y2="24" stroke="#00C9A7" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="30" y1="24" x2="25" y2="30" stroke="#00C9A7" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="30" y1="24" x2="35" y2="30" stroke="#00C9A7" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="33" y1="16.5" x2="27" y2="21" stroke="#00C9A7" stroke-width="2" stroke-linecap="round"/>
+        <line x1="33" y1="16.5" x2="38" y2="20" stroke="#00C9A7" stroke-width="2" stroke-linecap="round"/>
+        <!-- Leaf -->
+        <ellipse cx="19" cy="38" rx="4" ry="2.5" fill="#00C9A7" transform="rotate(-40 19 38)"/>
+      </svg>
+      <div class="logo-text-block">
+        <div class="logo-title">Sport <span>&amp;</span> Santé</div>
+        <div class="logo-subtitle">Le magazine du sport et du bien-être</div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -189,7 +220,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <!-- Hero -->
   <section class="hero">
     <h1 id="hero-h1">
-      Une spécialiste en médecine sportive pédiatrique explique pourquoi le « repos et la glace » ne soulagent pas la
+      Un spécialiste en médecine sportive pédiatrique explique pourquoi le « repos et la glace » ne soulagent pas la
       <em id="h1-highlight">douleur au talon</em>
       de votre enfant — et la <em id="h1-highlight2">solution mécanique simple</em>
       <span id="h1-tail"> qui révolutionne la prise en charge des jeunes athlètes</span>
@@ -198,7 +229,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
     <div class="hero-meta">
       <div class="img-slot" id="img-doctorPortrait" style="min-height:80px;width:80px;border-radius:50%;flex-shrink:0"></div>
       <div>
-        <div class="hero-byline" id="hero-byline">Par Dr. Laura Bennett, Spécialiste en médecine sportive pédiatrique</div>
+        <div class="hero-byline" id="hero-byline">Par Dr. Thomas Garnier, Spécialiste en médecine sportive pédiatrique</div>
         <div class="hero-date" id="hero-date">Publié le 15 mars 2026</div>
         <div class="hero-rating"><span class="stars" id="hero-rating">★★★★★ 4,8/5 · Plus de 10 000 avis de parents</span></div>
       </div>
@@ -213,10 +244,10 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <p id="intro-p3">Ils me racontent l'histoire, et c'est presque toujours la même.</p>
   <blockquote id="intro-quote">« Ses talons ont commencé à faire mal après l'entraînement de football il y a environ six mois. Le pédiatre a dit que c'est la maladie de Sever — des douleurs de croissance. Il nous a conseillé le repos et la glace. On a suivi. Pendant des semaines. Ça allait un peu mieux. Il est retourné à l'entraînement. En quelques jours, la douleur était revenue. On a fait ce cycle trois ou quatre fois maintenant. »</blockquote>
   <p id="intro-p4">Ensuite, ils me listent tout ce qu'ils ont essayé. Et la liste est toujours longue.</p>
-  <p id="intro-p5">De la glace après chaque entraînement. De l'ibuprofène avant les matchs. Des coupelles en gel pour les talons achetées sur Amazon qui glissaient dans les crampons. Des semelles orthopédiques sur mesure chez le podologue — 300 €, 400 €, parfois plus — que l'enfant dit trouver trop encombrantes et inconfortables. Des séances de kinésithérapie deux fois par semaine qui aidaient un peu, mais sans jamais tenir dès qu'il reprenait l'entraînement à plein régime. Des routines d'étirement trouvées sur YouTube. Des chaussettes de compression achetées sur Amazon qui n'ont rien changé.</p>
-  <p id="intro-p6">Ils ont dépensé des centaines d'euros. Certaines familles me disent en avoir dépensé plus de mille.</p>
+  <p id="intro-p5">De la glace après chaque entraînement. De l'ibuprofène avant les matchs. Des coupelles en gel pour les talons achetées sur Amazon qui glissaient dans les crampons. Des semelles orthopédiques sur mesure chez le podologue — 150 €, 200 €, parfois plus — que l'enfant dit trouver trop encombrantes et inconfortables. Des séances de kinésithérapie deux fois par semaine qui aidaient un peu, mais sans jamais tenir dès qu'il reprenait l'entraînement à plein régime. Des routines d'étirement trouvées sur YouTube. Des chaussettes de compression achetées sur Amazon qui n'ont rien changé.</p>
+  <p id="intro-p6">Ils ont dépensé des centaines d'euros. Certaines familles me disent en avoir dépensé plusieurs centaines.</p>
   <p><strong id="intro-p7-bold">Et leur enfant boite encore.</strong></p>
-  <p id="intro-p8">Si vous lisez ceci parce que vous avez trouvé en ligne le témoignage d'une maman sur la douleur au talon de son fils et une manchette qui l'a aidé — et que vous voulez savoir si tout cela est réellement fondé d'un point de vue médical — vous êtes au bon endroit.</p>
+  <p id="intro-p8">Si vous lisez ceci parce que vous avez trouvé en ligne le témoignage d'une maman sur la douleur au talon de son fils et une chevillère qui l'a aidé — et que vous voulez savoir si tout cela est réellement fondé d'un point de vue médical — vous êtes au bon endroit.</p>
   <p id="intro-p9">Je vais vous expliquer exactement ce qui se passe à l'intérieur du talon de votre enfant, pourquoi tout ce que vous avez essayé continue d'échouer, et ce que je recommande désormais à chaque famille de mon cabinet confrontée à ce problème.</p>
 
   <hr class="section-divider">
@@ -224,12 +255,12 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <!-- Section 1 -->
   <h2 id="section1-title">15 ans à regarder le même protocole échouer les mêmes familles</h2>
   <div class="img-slot" id="img-heroScene2" style="display:none"></div><!-- secondary doctor image placeholder, hidden until URL provided -->
-  <p id="section1-p1">Je suis le Dr. Laura Bennett. Je suis spécialiste en médecine sportive pédiatrique depuis 15 ans. J'ai traité plus de 2 000 jeunes athlètes souffrant de blessures aux cartilages de croissance — principalement la maladie de Sever (apophysite calcanéenne) et les affections associées.</p>
+  <p id="section1-p1">Je suis le Dr. Thomas Garnier. Je suis spécialiste en médecine sportive pédiatrique depuis 15 ans. J'ai traité plus de 2 000 jeunes athlètes souffrant de blessures aux cartilages de croissance — principalement la maladie de Sever (apophysite calcanéenne) et les affections associées.</p>
   <p id="section1-p2">Pendant la majeure partie de ma carrière, j'ai suivi le protocole standard. Du repos lors des crises. De la glace après l'activité. Des étirements. Peut-être des coupelles ou des semelles orthopédiques si la famille souhaitait être proactive. Et le conseil honnête que j'ai donné des centaines de fois : « C'est temporaire. Le cartilage de croissance se referme vers 14 ou 15 ans, et la douleur disparaît. »</p>
   <p id="section1-p3">Ce conseil n'est pas faux. La douleur finit bien par disparaître.</p>
   <p id="section1-p4">Mais il y a environ quatre ans, j'ai commencé à porter une attention particulière à quelque chose que j'avais négligé : ce qui arrivait à ces enfants entre le diagnostic et la guérison.</p>
   <p id="section1-p5">Je ne voyais pas seulement des enfants souffrir. Je voyais des enfants qui avaient <strong>perdu le plaisir de pratiquer leur sport</strong>. Des enfants qui étaient autrefois les premiers sur le terrain et qui trouvaient désormais des excuses pour sécher les entraînements. Des enfants dont les parents me rapportaient qu'ils avaient commencé à dire des choses comme : « Peut-être que je ne suis tout simplement pas fait pour jouer. »</p>
-  <blockquote id="section1-quote">« J'ai l'impression d'être une mauvaise mère. J'ai dépensé 800 € et six mois à essayer, et il va plus mal qu'au début. Qu'est-ce que je fais de travers ? »</blockquote>
+  <blockquote id="section1-quote">« J'ai l'impression d'être une mauvaise mère. J'ai dépensé 400 € et six mois à essayer, et il va plus mal qu'au début. Qu'est-ce que je fais de travers ? »</blockquote>
   <p id="section1-p6">Elle ne faisait rien de travers. C'est le protocole standard qui la laissait tomber. Il laissait tomber beaucoup de familles. Et j'avais besoin de comprendre pourquoi.</p>
 
   <hr class="section-divider">
@@ -253,7 +284,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <!-- Section 3 -->
   <h2 id="section3-title">Pourquoi tout ce que vous avez essayé n'a pas fonctionné (et pourquoi ce n'est pas de votre faute)</h2>
   <div class="img-slot" id="img-failedSolutions"></div>
-  <p id="section3-intro">Je dois être claire sur un point : le repos, la glace et les autres recommandations standard ne sont pas faux. Ils sont incomplets. Ils gèrent les symptômes sans s'attaquer à la cause mécanique. Et c'est pourquoi la douleur revient sans cesse.</p>
+  <p id="section3-intro">Je dois être clair sur un point : le repos, la glace et les autres recommandations standard ne sont pas faux. Ils sont incomplets. Ils gèrent les symptômes sans s'attaquer à la cause mécanique. Et c'est pourquoi la douleur revient sans cesse.</p>
   <p id="section3-lead">Passons en revue chacun d'eux pour que vous compreniez exactement pourquoi.</p>
 
   <div class="treatment-block">
@@ -318,7 +349,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <!-- Comparison table -->
   <h2 id="compare-title">Si votre enfant ne peut pas se permettre d'attendre 12 à 18 mois, <em>voici ce que vous devez savoir</em></h2>
   <div class="compare-intro-box">
-    <p id="compare-intro" style="margin:0;color:var(--text)">Le cartilage de croissance a besoin de soutien pendant l'activité — pas après. Le protocole standard traite les symptômes une fois les dégâts faits. La Manchette RecoverX stabilise le talon au point de traction pendant la course et les sauts — pour que le cartilage de croissance de votre enfant puisse réellement guérir tout en continuant à jouer. La plupart des parents constatent une amélioration significative en 2 à 3 semaines. Garantie satisfait ou remboursé 30 jours.</p>
+    <p id="compare-intro" style="margin:0;color:var(--text)">Le cartilage de croissance a besoin de soutien pendant l'activité — pas après. Le protocole standard traite les symptômes une fois les dégâts faits. La Chevillère SeverX stabilise le talon au point de traction pendant la course et les sauts — pour que le cartilage de croissance de votre enfant puisse réellement guérir tout en continuant à jouer. La plupart des parents constatent une amélioration significative en 2 à 3 semaines. Garantie satisfait ou remboursé 30 jours.</p>
   </div>
   <p id="compare-subtitle"><strong>Voici comment les approches se comparent :</strong></p>
 
@@ -330,27 +361,27 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
         <li id="col1-p2">La douleur revient généralement en quelques jours</li>
         <li id="col1-p3">Le cycle se répète 4 à 6 fois</li>
         <li id="col1-p4">L'enfant prend du retard sur ses coéquipiers</li>
-        <li id="col1-p5">Coût : 50 à 150 €+ en médicaments et consultations</li>
+        <li id="col1-p5">Coût : 30 à 80 € en médicaments et consultations</li>
       </ul>
     </div>
     <div class="compare-col ok">
       <div class="compare-col-title" id="col2-title">Soutien passif — Coupelles, semelles orthopédiques, compression générique</div>
       <ul>
         <li id="col2-p1">Ne cible pas la traction sur le cartilage de croissance</li>
-        <li id="col2-p2">Semelles : 300 à 600 €+, trop volumineuses pour les crampons</li>
+        <li id="col2-p2">Semelles : 150 à 300 €, trop volumineuses pour les crampons</li>
         <li id="col2-p3">Coupelles : 10 à 30 €, glissent dans la chaussure</li>
         <li id="col2-p4">Les chaussettes génériques ratent le point d'insertion</li>
         <li id="col2-p5">Les enfants refusent les dispositifs encombrants et inconfortables</li>
       </ul>
     </div>
     <div class="compare-col good">
-      <div class="compare-col-title" id="col3-title">Stabilisation du cartilage de croissance — Manchette RecoverX</div>
+      <div class="compare-col-title" id="col3-title">Stabilisation du cartilage de croissance — Chevillère SeverX</div>
       <ul>
         <li id="col3-p1">Soutient précisément le point d'insertion du tendon d'Achille</li>
         <li id="col3-p2">Réduit la traction sur le cartilage pendant l'activité</li>
         <li id="col3-p3">Profil bas — s'adapte à l'intérieur des crampons</li>
         <li id="col3-p4">Conçue pour les pieds en croissance</li>
-        <li id="col3-p5">34,99 € avec garantie 30 jours</li>
+        <li id="col3-p5">29,99 € avec garantie 30 jours</li>
       </ul>
       <div class="compare-cta-wrap">
         <a href="#" class="btn-cta" data-cta="cta_1" id="cta1-btn" style="font-size:14px;padding:12px 20px">Vérifier la disponibilité dans la pointure de votre enfant →</a>
@@ -363,12 +394,12 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <!-- Section 5: Product -->
   <h2 id="section5-title">La solution professionnelle enfin accessible aux familles ordinaires</h2>
   <div class="img-slot" id="img-productShot"></div>
-  <p id="section5-p1">Il y a environ trois ans, une entreprise appelée Asoleo a lancé un produit appelé la Manchette RecoverX — une manchette de compression conçue spécifiquement pour les enfants souffrant de douleurs au talon liées au cartilage de croissance.</p>
+  <p id="section5-p1">Il y a environ trois ans, une entreprise appelée Flexoryn a lancé un produit appelé la Chevillère SeverX — une chevillère de compression conçue spécifiquement pour les enfants souffrant de douleurs au talon liées au cartilage de croissance.</p>
   <p id="section5-p2">J'étais sceptique au début. J'avais vu beaucoup de produits « jeunesse » qui n'étaient que des produits adultes en version plus petite. Mais quand j'ai examiné la conception, quelque chose était différent.</p>
   <p id="section5-p3">La compression n'est pas uniforme. Elle est progressive — concentrée spécifiquement autour du calcanéum postérieur, là où le tendon d'Achille s'insère dans le cartilage de croissance. C'est exactement le point de traction dans la maladie de Sever.</p>
   <p id="section5-p4">Le profil de pression est calibré pour les tissus en développement — suffisamment ferme pour assurer la stabilisation, suffisamment doux pour la sensibilité hormonale de la peau en croissance.</p>
   <p id="section5-p5">Le profil est suffisamment plat pour s'adapter aux crampons de football, aux chaussures de basket et aux pointes d'athlétisme sans ajouter de volume. C'est plus important que la plupart des concepteurs de produits ne le réalisent. J'ai recommandé des coupelles et des semelles excellentes d'un point de vue clinique qui ont fini dans un placard parce que l'enfant refusait de les porter dans ses crampons.</p>
-  <p><strong id="section5-bold">Si un enfant ne le porte pas, ça ne sert à rien.</strong> <span id="section5-p6">La Manchette RecoverX, les enfants la gardent vraiment — et cela seul la rend plus efficace qu'un produit supérieur qui resterait dans leur sac de sport.</span></p>
+  <p><strong id="section5-bold">Si un enfant ne le porte pas, ça ne sert à rien.</strong> <span id="section5-p6">La Chevillère SeverX, les enfants la gardent vraiment — et cela seul la rend plus efficace qu'un produit supérieur qui resterait dans leur sac de sport.</span></p>
   <p id="section5-p7">J'ai commencé à la recommander aux familles de mon cabinet prises dans le cycle repos-glace. Non pas en remplacement des étirements et du repos approprié — mais comme le soutien mécanique manquant dans le protocole standard.</p>
   <p id="section5-p8">Ce que j'ai observé dans mon cabinet ces deux dernières années a changé la façon dont j'aborde chaque cas de maladie de Sever.</p>
 
@@ -376,16 +407,16 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
 
   <!-- Section 6: Results -->
   <h2 id="section6-title">Les résultats que j'ai observés ont changé ma pratique</h2>
-  <p id="jake-intro">Le premier patient à qui je l'ai recommandée était un joueur de football de 10 ans prénommé Jake. Il souffrait de douleurs bilatérales au talon depuis cinq mois. Ses parents avaient dépensé plus de 700 € en semelles orthopédiques, coupelles et kinésithérapie. Il était en activité réduite — limité au jogging léger, sans sprint ni matchs. Sa mère m'a dit qu'il avait commencé à dire qu'il n'avait plus envie d'aller à l'entraînement.</p>
-  <p id="jake-p1">J'ai demandé à Jake de porter la Manchette RecoverX pendant toutes ses activités — entraînements, matchs, et même en EPS à l'école.</p>
+  <p id="jake-intro">Le premier patient à qui je l'ai recommandée était un joueur de football de 10 ans prénommé Lucas. Il souffrait de douleurs bilatérales au talon depuis cinq mois. Ses parents avaient dépensé près de 300 € en semelles orthopédiques, coupelles et kinésithérapie. Il était en activité réduite — limité au jogging léger, sans sprint ni matchs. Sa mère m'a dit qu'il avait commencé à dire qu'il n'avait plus envie d'aller à l'entraînement.</p>
+  <p id="jake-p1">J'ai demandé à Lucas de porter la Chevillère SeverX pendant toutes ses activités — entraînements, matchs, et même en EPS à l'école.</p>
   <p id="jake-week1">Dès la première semaine, sa mère m'a rapporté que la boiterie après l'entraînement avait nettement diminué. Il avait encore mal, mais c'était <em>« une douleur différente — plus une sensation de contracture que cette douleur aiguë et profonde ».</em></p>
   <p id="jake-week2">À la deuxième semaine, il a terminé un entraînement complet pour la première fois depuis des mois. Sans glace après. Sa mère m'a envoyé un message : <em>« Il n'a pas demandé la poche de glace. Je ne savais presque plus quoi faire de moi. »</em></p>
   <p id="jake-week4">À la quatrième semaine, il a joué son premier tournoi. Trois matchs en une journée. Son entraîneur a dit à ses parents qu'il ressemblait à <em>« un autre joueur ».</em> Non pas parce que ses compétences avaient changé — mais parce qu'il ne grimaçait plus à chaque fois qu'il plantait son pied.</p>
-  <p id="jake-outcome">Il a maintenant six mois de recul. Activité complète. Aucune douleur. Il porte la manchette à chaque entraînement et chaque match par précaution, et sa mère dit qu'il la met sans qu'on le lui rappelle.</p>
-  <p><strong id="jake-not-unusual">Le cas de Jake n'est pas exceptionnel.</strong></p>
-  <p id="patient2">J'ai eu une joueuse de basket de 12 ans dont les parents envisageaient de la retirer de son équipe de compétition parce que la douleur au talon affectait ses notes — elle était tellement fatiguée par ses nuits agitées que son travail scolaire en pâtissait. Trois semaines avec la manchette, et les douleurs nocturnes qui la réveillaient ont cessé. Elle a terminé la saison.</p>
-  <p id="patient3">Une gymnaste de 9 ans dont l'entraîneur l'avait mise sur une « liste de surveillance » pour participation réduite. En deux semaines de port de la manchette pendant les entraînements, son entraîneur a demandé aux parents ce qui avait changé, tellement ses réceptions étaient devenues plus assurées.</p>
-  <p id="patient4">Un joueur de football américain de 11 ans dont le père avait dépensé plus de 1 000 € en IRM, consultations de spécialistes et kinésithérapie — et à qui on avait dit « il n'y a rien d'autre à faire qu'attendre ». Trois semaines avec la manchette, et la boiterie matinale qui faisait partie du quotidien depuis huit mois avait disparu.</p>
+  <p id="jake-outcome">Il a maintenant six mois de recul. Activité complète. Aucune douleur. Il porte la chevillère à chaque entraînement et chaque match par précaution, et sa mère dit qu'il la met sans qu'on le lui rappelle.</p>
+  <p><strong id="jake-not-unusual">Le cas de Lucas n'est pas exceptionnel.</strong></p>
+  <p id="patient2">J'ai eu une joueuse de basket de 12 ans dont les parents envisageaient de la retirer de son équipe de compétition parce que la douleur au talon affectait ses notes — elle était tellement fatiguée par ses nuits agitées que son travail scolaire en pâtissait. Trois semaines avec la chevillère, et les douleurs nocturnes qui la réveillaient ont cessé. Elle a terminé la saison.</p>
+  <p id="patient3">Une gymnaste de 9 ans dont l'entraîneur l'avait mise sur une « liste de surveillance » pour participation réduite. En deux semaines de port de la chevillère pendant les entraînements, son entraîneur a demandé aux parents ce qui avait changé, tellement ses réceptions étaient devenues plus assurées.</p>
+  <p id="patient4">Un joueur de football de 11 ans dont le père avait dépensé plus de 400 € entre l'IRM, les consultations et la kinésithérapie — et à qui on avait dit « il n'y a rien d'autre à faire qu'attendre ». Trois semaines avec la chevillère, et la boiterie matinale qui faisait partie du quotidien depuis huit mois avait disparu.</p>
   <p id="section6-conclusion">Je ne présente pas ces cas comme des données d'essais cliniques. Je les présente comme ce que j'ai observé dans ma propre pratique, de façon répétée, auprès de dizaines de familles. Le schéma est constant : <strong>une compression ciblée sur le cartilage de croissance pendant l'activité permet à l'irritation de se résorber d'une façon que le protocole standard — traiter les symptômes après l'activité — ne permet tout simplement pas.</strong></p>
 
   <hr class="section-divider">
@@ -418,12 +449,12 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
     </div>
   </div>
 
-  <p id="timeline-conclusion">Je veux être claire : la manchette ne guérit pas la maladie de Sever. Le cartilage de croissance se refermera de toute façon, selon son propre calendrier. Ce que fait la manchette, c'est protéger le cartilage d'un stress de traction excessif pendant les années où le décalage os-tendon est à son maximum — pour que votre enfant puisse continuer à jouer et à progresser au lieu de rester sur le banc et de prendre du retard.</p>
+  <p id="timeline-conclusion">Je veux être clair : la chevillère ne guérit pas la maladie de Sever. Le cartilage de croissance se refermera de toute façon, selon son propre calendrier. Ce que fait la chevillère, c'est protéger le cartilage d'un stress de traction excessif pendant les années où le décalage os-tendon est à son maximum — pour que votre enfant puisse continuer à jouer et à progresser au lieu de rester sur le banc et de prendre du retard.</p>
   <p id="timeline-guarantee">Tous les enfants ne répondent pas exactement dans ce délai. Certains voient une amélioration plus rapidement. D'autres mettent un mois entier. Mais d'après mon expérience, si aucune amélioration notable n'est constatée dans les 30 jours, il est temps d'examiner d'autres facteurs.</p>
-  <p id="timeline-guarantee-note">C'est pourquoi l'entreprise propose une <strong>garantie satisfait ou remboursé de 30 jours</strong>. Si votre enfant ne s'améliore pas, vous êtes intégralement remboursé. Après tout ce que la plupart des familles ont déjà dépensé, un produit à 35 € avec une vraie garantie est la chose la moins risquée qu'elles auront essayée.</p>
+  <p id="timeline-guarantee-note">C'est pourquoi l'entreprise propose une <strong>garantie satisfait ou remboursé de 30 jours</strong>. Si votre enfant ne s'améliore pas, vous êtes intégralement remboursé. Après tout ce que la plupart des familles ont déjà dépensé, un produit à 30 € avec une vraie garantie est la chose la moins risquée qu'elles auront essayée.</p>
 
   <div class="text-center" style="margin:28px 0">
-    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_2" id="cta2-btn">Essayer RecoverX sans risque — Garantie 30 jours →</a>
+    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_2" id="cta2-btn">Essayer SeverX sans risque — Garantie 30 jours →</a>
   </div>
 
   <hr class="section-divider">
@@ -494,7 +525,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
           <div class="t-stars" id="t6-stars">★★★★★</div>
         </div>
       </div>
-      <div class="t-text" id="t6-text">Ma gymnaste de 9 ans souffre de douleurs au talon depuis 8 mois. On a TOUT essayé. La glace, le repos, les coupelles, la kiné deux fois par semaine, les semelles orthopédiques sur mesure. On a dépensé largement plus de 1 000 €. Trois semaines avec cette manchette et elle vient de faire son premier entraînement complet sans pleurer. Je suis en colère que personne ne nous en ait parlé avant.</div>
+      <div class="t-text" id="t6-text">Ma gymnaste de 9 ans souffre de douleurs au talon depuis 8 mois. On a TOUT essayé. La glace, le repos, les coupelles, la kiné deux fois par semaine, les semelles orthopédiques sur mesure. On a dépensé bien plus de 400 €. Trois semaines avec cette chevillère et elle vient de faire son premier entraînement complet sans pleurer. Je suis en colère que personne ne nous en ait parlé avant.</div>
       <div class="t-meta" id="t6-meta">Il y a 4 jours · 👍 203</div>
     </div>
   </div>
@@ -506,8 +537,8 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <p id="section8-p1">Voici ce que je dis à chaque parent qui s'assoit dans mon cabinet avec un enfant qui boite et une liste de choses qui n'ont pas fonctionné :</p>
   <p><strong id="section8-bold">Vous ne faites rien de travers.</strong> <span id="section8-p2">Le protocole standard est incomplet. Le repos gère les symptômes. La glace réduit l'inflammation. Les coupelles amortissent les impacts. La kiné renforce les muscles. Mais rien de tout cela ne s'attaque à la tension mécanique au niveau du cartilage de croissance pendant l'activité qui cause la blessure.</span></p>
   <p><strong id="section8-bold2">Cette tension — le tendon d'Achille tendu qui tire sur le cartilage de croissance en développement à chaque foulée, chaque saut, chaque poussée — c'est ce qui doit être soutenu. Pendant l'activité. Pas avant. Pas après. Pendant.</strong></p>
-  <p id="section8-p3">La Manchette RecoverX a été conçue exactement pour cela. Une compression ciblée sur l'apophyse calcanéenne. Une pression progressive calibrée pour les pieds en croissance. Un profil suffisamment plat pour s'adapter aux crampons. Suffisamment confortable pour que les enfants la portent vraiment.</p>
-  <p><strong id="section8-price">Elle coûte 34,99 €.</strong> <span id="section8-p4">C'est moins qu'une séance de kinésithérapie. Moins qu'une paire de coupelles et semelles combinées. Bien moins que les semelles orthopédiques sur mesure qui prennent la poussière dans le placard de votre enfant.</span></p>
+  <p id="section8-p3">La Chevillère SeverX a été conçue exactement pour cela. Une compression ciblée sur l'apophyse calcanéenne. Une pression progressive calibrée pour les pieds en croissance. Un profil suffisamment plat pour s'adapter aux crampons. Suffisamment confortable pour que les enfants la portent vraiment.</p>
+  <p><strong id="section8-price">Elle coûte 29,99 €.</strong> <span id="section8-p4">C'est moins qu'une paire de semelles orthopédiques basiques. Moins qu'une paire de coupelles et semelles combinées. Bien moins que les semelles orthopédiques sur mesure qui prennent la poussière dans le placard de votre enfant.</span></p>
   <p id="section8-guarantee">Elle est accompagnée d'une <strong>garantie satisfait ou remboursé de 30 jours</strong>. Si votre enfant ne montre pas d'amélioration, vous êtes intégralement remboursé. Sans question, sans complication.</p>
   <p id="section8-p5">La plupart des familles de mon cabinet constatent un changement notable en deux à trois semaines :</p>
   <ul class="check-list">
@@ -531,17 +562,17 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
 
   <!-- PS -->
   <div class="ps-box">
-    <p id="ps-text"><strong>P.S.</strong> — Si vous vous demandez encore si une manchette de compression peut vraiment faire la différence pour un problème qui se situe « dans l'os » — je comprends ce scepticisme. Je l'avais moi-même. Mais la maladie de Sever n'est pas une maladie osseuse. C'est une blessure par traction au niveau du cartilage de croissance, causée par un tendon tendu. La compression au point de traction réduit la force de traction. C'est le même principe utilisé dans les programmes de médecine sportive professionnelle pour les jeunes dans le monde entier. La seule différence, c'est que jusqu'à récemment, il n'existait pas de produit conçu pour le délivrer sous une forme accessible aux familles ordinaires et que les enfants acceptent vraiment de porter. RecoverX a changé cela.</p>
+    <p id="ps-text"><strong>P.S.</strong> — Si vous vous demandez encore si une chevillère de compression peut vraiment faire la différence pour un problème qui se situe « dans l'os » — je comprends ce scepticisme. Je l'avais moi-même. Mais la maladie de Sever n'est pas une maladie osseuse. C'est une blessure par traction au niveau du cartilage de croissance, causée par un tendon tendu. La compression au point de traction réduit la force de traction. C'est le même principe utilisé dans les programmes de médecine sportive professionnelle pour les jeunes dans le monde entier. La seule différence, c'est que jusqu'à récemment, il n'existait pas de produit conçu pour le délivrer sous une forme accessible aux familles ordinaires et que les enfants acceptent vraiment de porter. SeverX a changé cela.</p>
     <p id="ps-p2" style="margin-top:14px">Si votre enfant souffre de douleurs au talon persistantes — en particulier s'il a entre 8 et 14 ans, pratique un sport et traverse une poussée de croissance — cela vaut la peine d'essayer. La garantie signifie qu'il n'y a aucun risque financier. Et l'alternative, c'est encore des mois du même cycle qui vous a amené ici.</p>
   </div>
 
   <!-- Disclaimer -->
-  <p class="disclaimer-text" id="disclaimer">Ceci est une publicité et non un article journalistique, un blog ou une mise à jour de protection des consommateurs. Les résultats individuels peuvent varier. Ces affirmations n'ont pas été évaluées par la FDA. Ce produit n'est pas destiné à diagnostiquer, traiter, guérir ou prévenir une maladie. La Manchette RecoverX est conçue pour apporter un soutien compressif à la zone du talon et de la cheville. Consultez le médecin de votre enfant avant de commencer tout nouveau protocole de traitement.</p>
+  <p class="disclaimer-text" id="disclaimer">Ceci est une publicité et non un article journalistique, un blog ou une mise à jour de protection des consommateurs. Les résultats individuels peuvent varier. Ces affirmations n'ont pas été évaluées par la FDA. Ce produit n'est pas destiné à diagnostiquer, traiter, guérir ou prévenir une maladie. La Chevillère SeverX est conçue pour apporter un soutien compressif à la zone du talon et de la cheville. Consultez le médecin de votre enfant avant de commencer tout nouveau protocole de traitement.</p>
   <p class="disclaimer-text" id="disclosure-text" style="margin-top:8px">Mention légale marketing : ce site fait office de place de marché. Le propriétaire a un lien financier avec les produits et services présentés.</p>
 
   <!-- Floating product card -->
   <div class="product-float" style="margin-top:48px">
-    <div class="product-float-title" id="float-product-name">Manchette de compression RecoverX™ pour talons de jeunes</div>
+    <div class="product-float-title" id="float-product-name">Chevillère de compression SeverX™ pour talons de jeunes</div>
     <div class="product-float-inner">
       <div class="product-float-img">
         <div class="img-slot" id="img-footerProduct" style="min-height:100px;border-radius:8px"></div>
@@ -597,12 +628,12 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
-      <p>Email : <strong id="footer-email">support@asoleo.com</strong></p>
+      <p>Email : <strong id="footer-email">support@flexoryn.com</strong></p>
       <p style="margin-top:6px">Téléphone : <strong id="footer-phone">+1 (213) 754-3471</strong></p>
       <p style="margin-top:10px;font-size:13px" id="footer-contact">Nous nous efforçons de répondre à toutes les demandes dans les meilleurs délais pendant les heures ouvrables.</p>
     </div>
   </div>
-  <div class="footer-bottom" id="footer-copyright">© 2026 Asoleo. Tous droits réservés.</div>
+  <div class="footer-bottom" id="footer-copyright">© 2026 Flexoryn. Tous droits réservés.</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -661,9 +692,20 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
         var slot = document.getElementById('img-' + imgKey);
         if (!slot) continue;
         if (url) {
+          // Logo spécial : afficher img, masquer SVG par défaut
+          if (imgKey === 'logo') {
+            slot.style.display = 'block';
+            slot.style.minHeight = '0';
+            slot.style.background = 'none';
+            slot.style.margin = '0';
+            slot.classList.add('has-img');
+            slot.innerHTML = '<img src="' + url + '" alt="Logo" style="height:52px;width:auto;display:block">';
+            var svgDefault = document.getElementById('logo-svg-default');
+            if (svgDefault) svgDefault.style.display = 'none';
+            continue;
+          }
           slot.classList.add('has-img');
           slot.innerHTML = '<img src="' + url + '" alt="" loading="lazy">';
-          // Show secondary doctor slot if URL is provided
           if (imgKey === 'heroScene2') slot.style.display = '';
         } else {
           slot.classList.remove('has-img');
