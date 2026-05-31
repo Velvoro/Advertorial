@@ -2,7 +2,7 @@ window.FUNNEL_CONFIG = {
   supabaseUrl: 'https://hikuempzuthiguramoai.supabase.co',
   supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhpa3VlbXB6dXRoaWd1cmFtb2FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNzU2ODEsImV4cCI6MjA5NTY1MTY4MX0.MF0UfmJQXAfNCNOXbTQuFSKbgp2mWeEqxUMCUhi07Xg',
   funnelId: 'advertorial',
-  adminPassword: 'HajjSamy2026',
+  adminPassword: 'admin2026',
 
   metaPixelId: '',
   gaId: '',
@@ -270,7 +270,7 @@ window.FUNNEL_CONFIG = {
     section8Closing: 'Le cartilage de croissance de votre enfant se refermera, que vous agissiez ou non. La question est de savoir ce qui se passe d\'ici là. Des mois ou des années dans le cycle repos-glace — à prendre du retard sur ses coéquipiers, perdre confiance, s\'éloigner du sport qu\'il aime. Ou un soutien mécanique pendant cette fenêtre critique, pour que son corps puisse à la fois grandir et performer.',
     section8Urgency: 'Chaque semaine dans ce cycle est une semaine qu\'il ne récupérera jamais.',
     cta3Text:      'COMMANDER LA CHEVILLÈRE SEVERX — GARANTIE 30 JOURS',
-    cta3Sub1:      'Expédition sous 24 heures',
+    cta3Sub1:      'Expédition sous 72 heures',
     cta3Sub2:      'Garantie satisfait ou remboursé 30 jours',
     cta3Sub3:      'Conçue pour les douleurs de croissance au talon',
 
@@ -302,8 +302,7 @@ window.FUNNEL_CONFIG = {
 
     /* ── Footer ── */
     footerCopyright:   '© 2026 Flexoryn. Tous droits réservés.',
-    footerEmail:       'support@flexoryn.com',
-    footerPhone:       '+1 (213) 754-3471',
+    footerEmail:       'contact@flexoryn.com',
     footerContact:     'Nous nous efforçons de répondre à toutes les demandes dans les meilleurs délais pendant les heures ouvrables.'
   }
 };
