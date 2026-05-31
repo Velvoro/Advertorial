@@ -255,6 +255,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <!-- Section 1 -->
   <h2 id="section1-title">15 ans à regarder le même protocole échouer les mêmes familles</h2>
   <div class="img-slot" id="img-heroScene2" style="display:none"></div><!-- secondary doctor image placeholder, hidden until URL provided -->
+  <div class="img-slot" id="img-section1Doctor"></div>
   <p id="section1-p1">Je suis le Dr. Thomas Garnier. Je suis spécialiste en médecine sportive pédiatrique depuis 15 ans. J'ai traité plus de 2 000 jeunes athlètes souffrant de blessures aux cartilages de croissance — principalement la maladie de Sever (apophysite calcanéenne) et les affections associées.</p>
   <p id="section1-p2">Pendant la majeure partie de ma carrière, j'ai suivi le protocole standard. Du repos lors des crises. De la glace après l'activité. Des étirements. Peut-être des coupelles ou des semelles orthopédiques si la famille souhaitait être proactive. Et le conseil honnête que j'ai donné des centaines de fois : « C'est temporaire. Le cartilage de croissance se referme vers 14 ou 15 ans, et la douleur disparaît. »</p>
   <p id="section1-p3">Ce conseil n'est pas faux. La douleur finit bien par disparaître.</p>
@@ -707,6 +708,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
           slot.classList.add('has-img');
           slot.innerHTML = '<img src="' + url + '" alt="" loading="lazy">';
           if (imgKey === 'heroScene2') slot.style.display = '';
+          if (imgKey === 'section1Doctor') slot.style.display = '';
         } else {
           slot.classList.remove('has-img');
           slot.innerHTML = '';
