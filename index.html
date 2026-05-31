@@ -101,9 +101,9 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
 .compare-cta-wrap{text-align:center;margin-top:16px}
 
 /* ── CTA buttons ── */
-.btn-cta{display:inline-block;background:var(--cta);color:var(--cta-text);font-family:var(--font-body);font-size:16px;font-weight:700;padding:16px 28px;border-radius:8px;text-decoration:none;text-align:center;cursor:pointer;border:none;transition:background .2s,transform .1s;line-height:1.2}
-.btn-cta:hover{background:var(--cta-hover);transform:translateY(-1px)}
-.btn-cta-full{display:block;width:100%;max-width:500px;margin:0 auto;font-size:18px;padding:20px 32px;border-radius:10px}
+.btn-cta{display:inline-block;background:#1A1A1A;color:#FFFFFF;font-family:var(--font-body);font-size:15px;font-weight:800;padding:18px 32px;border-radius:50px;text-decoration:none;text-align:center;cursor:pointer;border:none;transition:background .2s,transform .1s;line-height:1.2;letter-spacing:.5px;text-transform:uppercase}
+.btn-cta:hover{background:#333333;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.btn-cta-full{display:block;width:100%;max-width:500px;margin:0 auto;font-size:16px;padding:20px 32px;border-radius:50px}
 .cta-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:12px;font-size:13px;color:var(--text-muted)}
 .cta-badges span::before{content:'✓ ';color:var(--success);font-weight:700}
 
@@ -384,10 +384,11 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
         <li id="col3-p4">Conçue pour les pieds en croissance</li>
         <li id="col3-p5">29,99 € avec garantie 30 jours</li>
       </ul>
-      <div class="compare-cta-wrap">
-        <a href="#" class="btn-cta" data-cta="cta_1" id="cta1-btn" style="font-size:14px;padding:12px 20px">Vérifier la disponibilité dans la pointure de votre enfant →</a>
-      </div>
     </div>
+  </div>
+
+  <div class="text-center" style="margin:28px 0">
+    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_1" id="cta1-btn">VOIR LES TAILLES DISPONIBLES</a>
   </div>
 
   <hr class="section-divider">
@@ -455,7 +456,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <p id="timeline-guarantee-note">C'est pourquoi l'entreprise propose une <strong>garantie satisfait ou remboursé de 30 jours</strong>. Si votre enfant ne s'améliore pas, vous êtes intégralement remboursé. Après tout ce que la plupart des familles ont déjà dépensé, un produit à 30 € avec une vraie garantie est la chose la moins risquée qu'elles auront essayée.</p>
 
   <div class="text-center" style="margin:28px 0">
-    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_2" id="cta2-btn">Essayer SeverX sans risque — Garantie 30 jours →</a>
+    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_2" id="cta2-btn">VOIR LES TAILLES DISPONIBLES</a>
   </div>
 
   <hr class="section-divider">
@@ -553,7 +554,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <p><strong id="section8-urgency">Chaque semaine dans ce cycle est une semaine qu'il ne récupérera jamais.</strong></p>
 
   <div class="text-center" style="margin:32px 0">
-    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_3" id="cta3-btn" style="font-size:19px;letter-spacing:.3px">COMMANDER LA MANCHETTE RECOVERX — GARANTIE 30 JOURS</a>
+    <a href="#" class="btn-cta btn-cta-full" data-cta="cta_3" id="cta3-btn">VOIR LES TAILLES DISPONIBLES</a>
     <div class="cta-badges">
       <span id="cta3-sub1">Expédition sous 24 heures</span>
       <span id="cta3-sub2">Garantie satisfait ou remboursé 30 jours</span>
@@ -578,7 +579,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
       <div class="product-float-img">
         <div class="img-slot" id="img-footerProduct" style="min-height:100px;border-radius:8px"></div>
         <div style="margin-top:12px;text-align:center">
-          <a href="#" class="btn-cta" data-cta="cta_float" id="float-cta-btn" style="font-size:14px;padding:10px 16px;display:inline-block">Vérifier la disponibilité →</a>
+          <a href="#" class="btn-cta" data-cta="cta_float" id="float-cta-btn" style="font-size:14px;padding:10px 16px;display:inline-block">VOIR LES TAILLES DISPONIBLES</a>
         </div>
       </div>
       <div class="rating-overview" style="flex:1">
@@ -629,8 +630,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
-      <p>Email : <strong id="footer-email">support@flexoryn.com</strong></p>
-      <p style="margin-top:6px">Téléphone : <strong id="footer-phone">+1 (213) 754-3471</strong></p>
+      <p>Email : <strong id="footer-email">contact@flexoryn.com</strong></p>
       <p style="margin-top:10px;font-size:13px" id="footer-contact">Nous nous efforçons de répondre à toutes les demandes dans les meilleurs délais pendant les heures ouvrables.</p>
     </div>
   </div>
