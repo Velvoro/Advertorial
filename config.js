@@ -2,7 +2,7 @@ window.FUNNEL_CONFIG = {
   supabaseUrl: 'https://hikuempzuthiguramoai.supabase.co',
   supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhpa3VlbXB6dXRoaWd1cmFtb2FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNzU2ODEsImV4cCI6MjA5NTY1MTY4MX0.MF0UfmJQXAfNCNOXbTQuFSKbgp2mWeEqxUMCUhi07Xg',
   funnelId: 'advertorial',
-  adminPassword: 'HajjSamy2026',
+  adminPassword: 'admin2026',
 
   metaPixelId: '',
   gaId: '',
@@ -182,7 +182,7 @@ window.FUNNEL_CONFIG = {
     col3Point3:   'Profil bas — s\'adapte à l\'intérieur des crampons',
     col3Point4:   'Conçue pour les pieds en croissance',
     col3Point5:   '29,99 € avec garantie 30 jours',
-    col3Cta:      'VOIR LES TAILLES DISPONIBLES →',
+    col3Cta:      'VOIR LES TAILLES DISPONIBLES',
 
     /* ── Section 5 ── */
     section5Title:  'La solution professionnelle enfin accessible aux familles ordinaires',
@@ -222,7 +222,7 @@ window.FUNNEL_CONFIG = {
     timelineConclusion: 'Je veux être clair : la chevillère ne guérit pas la maladie de Sever. Le cartilage de croissance se refermera de toute façon, selon son propre calendrier. Ce que fait la chevillère, c\'est protéger le cartilage d\'un stress de traction excessif pendant les années où le décalage os-tendon est à son maximum — pour que votre enfant puisse continuer à jouer et à progresser au lieu de rester sur le banc et de prendre du retard.',
     timelineGuarantee: 'Tous les enfants ne répondent pas exactement dans ce délai. Certains voient une amélioration plus rapidement. D\'autres mettent un mois entier. Mais d\'après mon expérience, si aucune amélioration notable n\'est constatée dans les 30 jours, il est temps d\'examiner d\'autres facteurs.',
     timelineGuaranteeNote: 'C\'est pourquoi l\'entreprise propose une garantie satisfait ou remboursé de 30 jours. Si votre enfant ne s\'améliore pas, vous êtes intégralement remboursé. Sans question, sans complication. Après tout ce que la plupart des familles ont déjà dépensé, un produit à 30 € avec une vraie garantie est la chose la moins risquée qu\'elles auront essayée.',
-    cta2Text:      'Essayer SeverX sans risque — Garantie 30 jours →',
+    cta2Text:      'VOIR LES TAILLES DISPONIBLES',
 
     /* ── Témoignages ── */
     testimonialsTitle: 'Ce que disent les autres parents',
@@ -269,8 +269,8 @@ window.FUNNEL_CONFIG = {
     bullet5:       'Il parle à nouveau de son sport — plus de sa douleur',
     section8Closing: 'Le cartilage de croissance de votre enfant se refermera, que vous agissiez ou non. La question est de savoir ce qui se passe d\'ici là. Des mois ou des années dans le cycle repos-glace — à prendre du retard sur ses coéquipiers, perdre confiance, s\'éloigner du sport qu\'il aime. Ou un soutien mécanique pendant cette fenêtre critique, pour que son corps puisse à la fois grandir et performer.',
     section8Urgency: 'Chaque semaine dans ce cycle est une semaine qu\'il ne récupérera jamais.',
-    cta3Text:      'COMMANDER LA CHEVILLÈRE SEVERX — GARANTIE 30 JOURS',
-    cta3Sub1:      'Expédition sous 72 heures',
+    cta3Text:      'VOIR LES TAILLES DISPONIBLES',
+    cta3Sub1:      'Expédition sous 24 heures',
     cta3Sub2:      'Garantie satisfait ou remboursé 30 jours',
     cta3Sub3:      'Conçue pour les douleurs de croissance au talon',
 
@@ -284,7 +284,7 @@ window.FUNNEL_CONFIG = {
 
     /* ── Produit flottant ── */
     floatProductName:  'Chevillère de compression SeverX™ pour jeunes athlètes',
-    floatProductCta:   'Vérifier la disponibilité →',
+    floatProductCta:   'VOIR LES TAILLES DISPONIBLES',
     floatRatingLabel:  '★★★★★ 4,8 sur 5',
     floatStar5:        '87%',
     floatStar4:        '10%',
