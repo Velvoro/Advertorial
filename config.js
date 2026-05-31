@@ -43,12 +43,13 @@ window.FUNNEL_CONFIG = {
 
   images: {
     logo:             '',
-    doctorPortrait:   '',
-    heroScene:        '',
-    heelDiagram:      '',
-    failedSolutions:  '',
-    productShot:      '',
-    footerProduct:    ''
+    doctorPortrait:   'https://cdn.shopify.com/s/files/1/0696/4251/8616/files/image_4d9b0891-8bf6-4217-88e2-ef80e2e12616.webp?v=1780227857',
+    heroScene:        'https://cdn.shopify.com/s/files/1/0696/4251/8616/files/image_cb530df8-fe00-40f9-b90d-ef7f5454d4c3.webp?v=1780240672',
+    heelDiagram:      'https://cdn.shopify.com/s/files/1/0696/4251/8616/files/image_2.webp?v=1780241531',
+    failedSolutions:  'https://cdn.shopify.com/s/files/1/0696/4251/8616/files/failed_solutions.png?v=1780241628',
+    productShot:      'https://cdn.shopify.com/s/files/1/0696/4251/8616/files/image_3.webp?v=1780241942',
+    footerProduct:    '',
+    section1Doctor:   'https://cdn.shopify.com/s/files/1/0696/4251/8616/files/image_1_7aae7e16-7801-48c9-a95a-1b93b879da53.webp?v=1780241099'
   },
 
   texts: {
