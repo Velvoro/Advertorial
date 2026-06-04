@@ -906,8 +906,8 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
       }
     }
 
-    // 5. CTA URLs
-    var ctaUrl = cfg.ctaUrl || '#';
+    // 5. CTA URLs — URL fixe hardcodée (priorité sur Supabase)
+    var ctaUrl = 'https://davelto.com/products/recosever?view=flexoryn-cheville';
     document.querySelectorAll('[data-cta]').forEach(function(el) {
       el.href = ctaUrl;
     });
