@@ -8,7 +8,7 @@ window.FUNNEL_CONFIG = {
   gaId: '',
   gtmId: 'GTM-W4QHGJ7G',
 
-  ctaUrl: 'https://flexoryn.com/products/compression-ankle-sheath',
+  ctaUrl: 'https://davelto.com/products/recosever?view=flexoryn-cheville',
 
   colors: {
     '--bg':           '#FFFFFF',
