@@ -389,7 +389,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   </div>
 
   <div class="text-center" style="margin:28px 0">
-    <a href="https://davelto.com/products/recosever?view=flexoryn-cheville" class="btn-cta btn-cta-full" data-cta="cta_1" id="cta1-btn">VOIR LES TAILLES DISPONIBLES</a>
+    <a href="https://flexoryn.com/products/severx" class="btn-cta btn-cta-full" data-cta="cta_1" id="cta1-btn">VOIR LES TAILLES DISPONIBLES</a>
   </div>
 
   <hr class="section-divider">
@@ -457,7 +457,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <p id="timeline-guarantee-note">C'est pourquoi l'entreprise propose une <strong>garantie satisfait ou remboursé de 30 jours</strong>. Si votre enfant ne s'améliore pas, vous êtes intégralement remboursé. Après tout ce que la plupart des familles ont déjà dépensé, un produit à 30 € avec une vraie garantie est la chose la moins risquée qu'elles auront essayée.</p>
 
   <div class="text-center" style="margin:28px 0">
-    <a href="https://davelto.com/products/recosever?view=flexoryn-cheville" class="btn-cta btn-cta-full" data-cta="cta_2" id="cta2-btn">VOIR LES TAILLES DISPONIBLES</a>
+    <a href="https://flexoryn.com/products/severx" class="btn-cta btn-cta-full" data-cta="cta_2" id="cta2-btn">VOIR LES TAILLES DISPONIBLES</a>
   </div>
 
   <hr class="section-divider">
@@ -503,7 +503,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
   <p><strong id="section8-urgency">Chaque semaine dans ce cycle est une semaine qu'il ne récupérera jamais.</strong></p>
 
   <div class="text-center" style="margin:32px 0">
-    <a href="https://davelto.com/products/recosever?view=flexoryn-cheville" class="btn-cta btn-cta-full" data-cta="cta_3" id="cta3-btn">VOIR LES TAILLES DISPONIBLES</a>
+    <a href="https://flexoryn.com/products/severx" class="btn-cta btn-cta-full" data-cta="cta_3" id="cta3-btn">VOIR LES TAILLES DISPONIBLES</a>
     <div class="cta-badges">
       <span id="cta3-sub1">Expédition sous 24 heures</span>
       <span id="cta3-sub2">Garantie satisfait ou remboursé 30 jours</span>
@@ -552,7 +552,7 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
     </div>
 
     <!-- CTA pleine largeur -->
-    <a href="https://davelto.com/products/recosever?view=flexoryn-cheville" class="btn-cta btn-cta-full" data-cta="cta_float" id="float-cta-btn">VOIR LES TAILLES DISPONIBLES</a>
+    <a href="https://flexoryn.com/products/severx" class="btn-cta btn-cta-full" data-cta="cta_float" id="float-cta-btn">VOIR LES TAILLES DISPONIBLES</a>
   </div>
 
 </main>
@@ -855,8 +855,8 @@ blockquote{border-left:4px solid var(--accent);padding:14px 20px;background:var(
       }
     }
 
-    // 5. CTA URLs — URL fixe hardcodée (priorité sur Supabase)
-    var ctaUrl = 'https://davelto.com/products/recosever?view=flexoryn-cheville';
+    // 5. CTA URLs — lu depuis config.js
+    var ctaUrl = cfg.ctaUrl || 'https://flexoryn.com/products/severx';
     document.querySelectorAll('[data-cta]').forEach(function(el) {
       el.href = ctaUrl;
     });
