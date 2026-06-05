@@ -127,7 +127,7 @@ window.FUNNEL_CONFIG = {
     heelCupsTitle: 'Les coupelles en gel et les talonnettes',
     heelCupsP1:   'Les coupelles amortissent la partie inférieure du talon. Elles réduisent l\'impact du pied lors de la frappe au sol. Pour certains types de douleur au talon — comme les talons meurtris ou la fasciite plantaire — c\'est utile.',
     heelCupsP2:   'Mais dans la maladie de Sever, la principale source de douleur n\'est pas un impact venant d\'en bas. C\'est une traction venant de l\'arrière — le tendon d\'Achille qui tire sur la partie postérieure du cartilage de croissance. Amortir la partie inférieure du talon ne réduit pas la force de traction à l\'arrière.',
-    heelCupsP3:   'J\'ai vu de nombreux parents dépenser entre 15 et 30 € en coupelles et se demander pourquoi elles n\'ont pas aidé. Elles ne ciblaient tout simplement pas la bonne partie du problème.',
+    heelCupsP3:   'J\'ai vu de nombreux parents dépenser entre 15 et moins de 25 € en coupelles et se demander pourquoi elles n\'ont pas aidé. Elles ne ciblaient tout simplement pas la bonne partie du problème.',
 
     orthoticsTitle: 'Les semelles orthopédiques sur mesure',
     orthoticsP1:  'Les semelles orthopédiques soutiennent la voûte plantaire et corrigent l\'alignement du pied. Elles sont excellentes pour des affections comme le pied plat, la pronation excessive et la fasciite plantaire.',
@@ -172,7 +172,7 @@ window.FUNNEL_CONFIG = {
     col2Title:    'Soutien passif — Coupelles, semelles orthopédiques, compression générique',
     col2Point1:   'Ne cible pas la traction sur le cartilage de croissance',
     col2Point2:   'Semelles : 150 à 300 €, trop volumineuses pour les crampons',
-    col2Point3:   'Coupelles : 10 à 30 €, glissent dans la chaussure',
+    col2Point3:   'Coupelles : 10 à moins de 25 €, glissent dans la chaussure',
     col2Point4:   'Les chaussettes génériques ratent le point d\'insertion',
     col2Point5:   'Les enfants refusent les dispositifs encombrants et inconfortables',
 
@@ -181,7 +181,7 @@ window.FUNNEL_CONFIG = {
     col3Point2:   'Réduit la traction sur le cartilage pendant l\'activité',
     col3Point3:   'Profil bas — s\'adapte à l\'intérieur des crampons',
     col3Point4:   'Conçue pour les pieds en croissance',
-    col3Point5:   '29,99 € avec garantie 30 jours',
+    col3Point5:   'moins de 25 € avec garantie 30 jours',
     col3Cta:      'VOIR LES TAILLES DISPONIBLES',
 
     /* ── Section 5 ── */
@@ -221,7 +221,7 @@ window.FUNNEL_CONFIG = {
     week3Text:     'L\'activité complète — matchs, tournois, journées d\'entraînement consécutives — redevient possible sans que la douleur ne revienne. C\'est généralement là que les parents me disent « c\'est comme si on avait retrouvé notre enfant ». Non pas parce que la douleur a disparu comme par magie du jour au lendemain, mais parce que pour la première fois depuis des mois, leur enfant peut faire ce qu\'il aime sans le payer après.',
     timelineConclusion: 'Je veux être clair : la chevillère ne guérit pas la maladie de Sever. Le cartilage de croissance se refermera de toute façon, selon son propre calendrier. Ce que fait la chevillère, c\'est protéger le cartilage d\'un stress de traction excessif pendant les années où le décalage os-tendon est à son maximum — pour que votre enfant puisse continuer à jouer et à progresser au lieu de rester sur le banc et de prendre du retard.',
     timelineGuarantee: 'Tous les enfants ne répondent pas exactement dans ce délai. Certains voient une amélioration plus rapidement. D\'autres mettent un mois entier. Mais d\'après mon expérience, si aucune amélioration notable n\'est constatée dans les 30 jours, il est temps d\'examiner d\'autres facteurs.',
-    timelineGuaranteeNote: 'C\'est pourquoi l\'entreprise propose une garantie satisfait ou remboursé de 30 jours. Si votre enfant ne s\'améliore pas, vous êtes intégralement remboursé. Sans question, sans complication. Après tout ce que la plupart des familles ont déjà dépensé, un produit à 30 € avec une vraie garantie est la chose la moins risquée qu\'elles auront essayée.',
+    timelineGuaranteeNote: 'C\'est pourquoi l\'entreprise propose une garantie satisfait ou remboursé de 30 jours. Si votre enfant ne s\'améliore pas, vous êtes intégralement remboursé. Sans question, sans complication. Après tout ce que la plupart des familles ont déjà dépensé, un produit à moins de 25 € avec une vraie garantie est la chose la moins risquée qu\'elles auront essayée.',
     cta2Text:      'VOIR LES TAILLES DISPONIBLES',
 
     /* ── Témoignages ── */
@@ -258,7 +258,7 @@ window.FUNNEL_CONFIG = {
     section8P2:    'Le protocole standard est incomplet. Le repos gère les symptômes. La glace réduit l\'inflammation. Les coupelles amortissent les impacts. La kiné renforce les muscles. Mais rien de tout cela ne s\'attaque à la tension mécanique au niveau du cartilage de croissance pendant l\'activité qui cause la blessure.',
     section8Bold2: 'Cette tension — le tendon d\'Achille tendu qui tire sur le cartilage de croissance en développement à chaque foulée, chaque saut, chaque poussée — c\'est ce qui doit être soutenu. Pendant l\'activité. Pas avant. Pas après. Pendant.',
     section8P3:    'La Chevillère SeverX a été conçue exactement pour cela. Une compression ciblée sur l\'apophyse calcanéenne. Une pression progressive calibrée pour les pieds en croissance. Un profil suffisamment plat pour s\'adapter aux crampons. Suffisamment confortable pour que les enfants la portent vraiment.',
-    section8Price: 'Elle coûte 29,99 €.',
+    section8Price: 'Elle coûte moins de 25 €.',
     section8P4:    'C\'est moins qu\'une séance de kinésithérapie. Moins qu\'une paire de coupelles et semelles combinées. Bien moins que les semelles orthopédiques sur mesure qui prennent la poussière dans le placard de votre enfant.',
     section8Guarantee: 'Elle est accompagnée d\'une garantie satisfait ou remboursé de 30 jours. Si votre enfant ne montre pas d\'amélioration, vous êtes intégralement remboursé. Sans question, sans complication.',
     section8P5:    'La plupart des familles de mon cabinet constatent un changement notable en deux à trois semaines :',
